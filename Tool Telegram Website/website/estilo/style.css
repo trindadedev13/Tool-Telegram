@@ -1,0 +1,90 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            padding: 18px;
+        }
+		
+		.text-center {
+		   background-color: #cccccc99; /* Cor de fundo */
+		   color: #000000;
+		   padding: 0px;
+		}
+
+        header {
+            background-color: #cccccc99; /* Cor de fundo */
+            color: #000000;
+            padding: 29px 0;
+            text-align: center;
+            margin-bottom: 35px;
+            border-radius: 0 0 10px 10px;
+        }
+		
+		#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background: url('../../video/background/background.mp4') no-repeat;
+    background-size: cover;
+}
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+        }
+
+        section {
+            background-color: #fff;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.1rem;
+        }
+
+        .feature-list li {
+            padding-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .footer-contact {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
