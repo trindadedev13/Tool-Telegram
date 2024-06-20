@@ -65,10 +65,12 @@ body {
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
-            padding: 10px 30px;
+            padding: 10px 90px;
             font-size: 1.2rem;
             border-radius: 25px;
             transition: all 0.3s;
+			text-align: center;
+			margin-bottom: 35px;
         }
 
         .btn-primary:hover {
