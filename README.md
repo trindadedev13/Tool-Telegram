@@ -1,37 +1,63 @@
-# Envio de Mensagem Via Bot Telegram
+# Tool Telegram
 
-Este projeto consiste em uma aplicação web simples que permite enviar mensagens e imagens para o Telegram utilizando um bot. O usuário pode escolher entre enviar uma imagem por arquivo ou por URL.
+Bem-vindo ao Tool Telegram! Este projeto foi desenvolvido para administradores de grupos/canais do Telegram e também para pessoas que trabalham com bots. Ele foi projetado para não divulgar o ID ou o username do proprietário; a única informação visível para o cliente é o username do bot.
 
-## Funcionalidades
+## Introdução
 
-- **Envio de Mensagem:** Você pode enviar uma mensagem de texto para qualquer chat do Telegram especificando o `ChatID` e o `Token` do bot.
-  
-- **Envio de Imagem:** É possível enviar uma imagem junto com a mensagem, seja por upload de arquivo ou inserção da URL da imagem.
+O nosso objetivo é integrar diversas ferramentas em uma única plataforma, proporcionando uma experiência de usuário excepcional. Desenvolvemos este aplicativo com foco na usabilidade e na eficiência, para que você possa se concentrar no que realmente importa.
 
-- **Tópico Opcional:** Existe a opção de especificar um `ID do Tópico` para agrupar mensagens relacionadas.
+## Sobre o Criador
 
-### Pré-requisitos
+O Tool Telegram foi desenvolvido por AGL SK, um profissional apaixonado por tecnologia e inovação. Com vasta experiência na criação de soluções digitais, AGL SK dedica-se a entregar produtos de alta qualidade que atendam às necessidades dos usuários.
 
-- Navegador web moderno (recomendado Chrome, Firefox, Safari)
-- Token de acesso do seu bot do Telegram
-- ChatID do grupo ou canal ou privado
+## Documentação
 
-### Preencha os campos necessários:
+Encontre toda a documentação necessária para utilizar o Tool Telegram de maneira eficiente. Aqui você terá acesso a tutoriais, FAQs e guias detalhados que irão auxiliá-lo a tirar o máximo proveito de todas as funcionalidades oferecidas.
 
-- ChatID: Informe o ID do chat para onde deseja enviar a mensagem.
-- Token: Insira o token do seu bot do Telegram.
-- Mensagem: Digite o conteúdo da mensagem que deseja enviar.
-- Tipo de Imagem: Selecione entre Arquivo para fazer upload de uma imagem ou URL para fornecer uma URL de imagem.
-- Foto (opcional): Se escolher Arquivo, selecione uma imagem localmente.
-- URL da Imagem: Se escolher URL, forneça a URL da imagem.
+[Acesse a Documentação](https://aglsk.github.io/Tool-Telegram-Oficial/documentation)
 
-Clique em Enviar para enviar a mensagem e, se necessário, a imagem para o Telegram.
+## Usage
 
-Caso a mensagem seja enviada com sucesso, uma janela modal informará que a mensagem foi enviada com sucesso. Caso contrário, um alerta será mostrado com o erro ocorrido.
+Tool Telegram was created to send messages to your group/channel using its bot, ensuring your anonymity.
 
-### Tecnologias Utilizadas
+## Authentication
 
-HTML
-JavaScript (com jQuery para facilitar interações com o DOM)
-Bootstrap 4 (para estilização básica e componentes responsivos)
-Telegram Bot API (para enviar mensagens e imagens via bot)
+To authenticate, include your ChatID and API Token Bot:
+
+- ChatID: Your Chat ID Here
+- Token: Your Token Bot API Here
+
+## Endpoints
+
+### POST /Group or Channel Without Topic
+
+#### Item Post
+
+To send:
+- Message: Your message
+- Photo Option: A Photo Here (Optional)
+
+#### Response
+
+Message sent successfully!
+
+### POST /Group or Channel With Topic
+
+#### Item Post
+
+To send:
+- Message: Your message
+- Photo Option: A Photo Here (Optional)
+- Topic ID (optional): Topic ID
+
+#### Response
+
+Message sent successfully!
+
+---
+
+### Licença
+
+Este software é distribuído sob os termos da [Licença Pública Geral GNU](https://www.gnu.org/licenses/gpl-3.0.html) conforme publicada pela Free Software Foundation, tanto na versão 3 da Licença, ou (a seu critério) qualquer versão posterior.
+
+Consulte a licença para obter os detalhes completos dos direitos e restrições associados ao uso deste software.
