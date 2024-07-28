@@ -1,7 +1,30 @@
+document.addEventListener("DOMContentLoaded", function() {
+    var savedChatId = localStorage.getItem("chatId");
+    if (savedChatId) {
+        document.getElementById("chatId").value = savedChatId;
+    }
+    var savedToken = localStorage.getItem("token");
+    if (savedToken) {
+        document.getElementById("token").value = savedToken;
+    }
+});
+
 function togglePhotoInput() {
     var photoOption = document.getElementById("photoOption").value;
     document.getElementById("photoUrlGroup").style.display = photoOption === "url" ? "block" : "none";
     document.getElementById("photoFileGroup").style.display = photoOption === "file" ? "block" : "none";
+}
+
+function removePhoto(type) {
+    if (type === 'url') {
+        document.getElementById("photoUrl").value = '';
+        document.getElementById("photoUrlGroup").style.display = 'none';
+        document.getElementById("photoOption").value = 'none';
+    } else if (type === 'file') {
+        document.getElementById("photoFile").value = '';
+        document.getElementById("photoFileGroup").style.display = 'none';
+        document.getElementById("photoOption").value = 'none';
+    }
 }
 
 function sendMessage() {
@@ -14,6 +37,10 @@ function sendMessage() {
         alert("Por favor, preencha todos os campos obrigatórios!");
         return;
     }
+
+    // Save ChatID and token to localStorage
+    localStorage.setItem("chatId", chatId);
+    localStorage.setItem("token", token);
 
     var formData = new FormData();
     formData.append("chat_id", chatId);
