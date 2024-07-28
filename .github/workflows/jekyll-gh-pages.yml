@@ -55,6 +55,18 @@ jobs:
           source: ./website/topico
           destination: ./_site/topico
 
+      - name: Build Jekyll site from website/css
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./website/css
+          destination: ./_site/css
+
+      - name: Build Jekyll site from website/js
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./website/js
+          destination: ./_site/js
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
