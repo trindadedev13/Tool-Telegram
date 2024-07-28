@@ -31,13 +31,15 @@
                 <option value="file">Carregar Foto</option>
             </select>
         </div>
-        <div class="form-group" id="photoUrlGroup" style="display: none;">
+        <div class="form-group position-relative" id="photoUrlGroup" style="display: none;">
             <label for="photoUrl">URL da Foto:</label>
             <input class="form-control" type="text" id="photoUrl" name="photoUrl" placeholder="Informe a URL da foto">
+            <span class="remove-btn" onclick="removePhoto('url')">&times;</span>
         </div>
-        <div class="form-group" id="photoFileGroup" style="display: none;">
+        <div class="form-group position-relative" id="photoFileGroup" style="display: none;">
             <label for="photoFile">Carregar Foto:</label>
             <input class="form-control" type="file" id="photoFile" name="photoFile">
+            <span class="remove-btn" onclick="removePhoto('file')">&times;</span>
         </div>
         <button type="button" class="submit-btn" onclick="sendMessage()">Enviar</button>
     </form>
