@@ -35,7 +35,7 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./Tool Telegram Website
-          destination: ./_site
+          destination: ./Tool Telegram Website/website
 
       - name: Build Jekyll site from Website
         uses: actions/jekyll-build-pages@v1
@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./Tool Telegram Website/website
 
   # Deployment job
   deploy:
