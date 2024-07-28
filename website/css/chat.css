@@ -35,3 +35,11 @@ body {
         .submit-btn:hover {
             background-color: #0056b3;
         }
+        .remove-btn {
+            cursor: pointer;
+            color: red;
+            font-size: 20px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
