@@ -37,11 +37,23 @@ jobs:
           source: ./Tool Telegram Website/website
           destination: ./_site
 
-      - name: Build Jekyll site from additional Website
+      - name: Build Jekyll site from website
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./website
-          destination: ./_site/additional-website
+          destination: ./_site/website
+
+      - name: Build Jekyll site from website/chat
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./website/chat
+          destination: ./_site/chat
+
+      - name: Build Jekyll site from website/topico
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./website/topico
+          destination: ./_site/topico
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
