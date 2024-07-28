@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mensagem V1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/topico.css">
+</head>
+<body>
+<div class="container">
+    <div class="title">Enviar Mensagem BOT</div>
+    <form id="sendMessageForm">
+        <div class="form-group">
+            <label for="chatId">ChatID:</label>
+            <input class="form-control" type="text" id="chatId" name="chatId" value="-100" placeholder="Informe o ChatID (Obs: Coloque o '-100' Antes do ID)">
+        </div>
+        <div class="form-group">
+            <label for="token">Token:</label>
+            <input class="form-control" type="text" id="token" name="token" placeholder="Informe o Token">
+        </div>
+        <div class="form-group">
+            <label for="message">Mensagem:</label>
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Digite sua mensagem"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="topicId">ID do Tópico (opcional):</label>
+            <input class="form-control" type="text" id="topicId" name="topicId" placeholder="Informe o ID do Tópico (Ex: 396)">
+        </div>
+        <div class="button-group">
+            <button type="button" class="submit-btn" onclick="openImageModal()">Selecionar Imagem</button>
+            <button type="button" class="submit-btn" onclick="sendMessage()">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<!-- Modal para seleção de imagem -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Selecionar Tipo de Imagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="imageType" id="imageFile" value="file" checked>
+                        <label class="form-check-label" for="imageFile">Arquivo</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="imageType" id="imageUrl" value="url">
+                        <label class="form-check-label" for="imageUrl">URL</label>
+                    </div>
+                </div>
+                <div class="form-group" id="photoFileGroup">
+                    <label for="photo">Foto (opcional):</label>
+                    <input class="form-control" type="file" id="photo" name="photo">
+                    <small id="photoHelp" class="form-text text-muted">Selecione uma imagem.</small>
+                </div>
+                <div class="form-group" id="photoUrlGroup" style="display: none;">
+                    <label for="photoUrl">URL da Imagem:</label>
+                    <input class="form-control" type="text" id="photoUrl" name="photoUrl" placeholder="Informe a URL da Imagem">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="saveImageSelection()">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Sucesso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Mensagem enviada com sucesso!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../js/topico.js"></script>
+</body>
+</html>
