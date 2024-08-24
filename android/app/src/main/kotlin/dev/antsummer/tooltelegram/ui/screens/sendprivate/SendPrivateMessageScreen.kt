@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.outlined.Settings
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -64,7 +63,7 @@ fun SendPrivateMessageScreen() {
             } else {
                 dialogTitle = stringResource(id = R.string.dialog_error_title)
                 dialogText = stringResource(id = R.string.dialog_error_text)
-                dialogIcon = Icons.Filled.Error
+                dialogIcon = painterResource(R.drawable.ic_error_24)
                 dialogIconDescription = stringResource(id = R.string.dialog_error_title)
             }
         }
