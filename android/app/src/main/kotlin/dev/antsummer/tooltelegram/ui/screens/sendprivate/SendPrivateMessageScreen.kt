@@ -65,7 +65,7 @@ fun SendPrivateMessageScreen() {
             } else {
                 dialogTitle = stringResource(id = R.string.dialog_error_title)
                 dialogText = stringResource(id = R.string.dialog_error_text)
-                dialogIcon = getErrorIcon() 
+                dialogIcon = Icons.Filled.CheckCircle
                 dialogIconDescription = stringResource(id = R.string.dialog_error_title)
             }
         }
@@ -151,9 +151,4 @@ fun SendPrivateMessageScreen() {
             iconDescription = dialogIconDescription
         )
     }
-}
-
-@Composable
-fun getErrorIcon(): Painter {
-    return painterResource(id = R.drawable.ic_error_24)
 }
