@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "login": "aglsk",
+    "id": 113151786,
+    "node_id": "U_kgDOBr6PKg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/113151786?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/aglsk",
+    "html_url": "https://github.com/aglsk",
+    "followers_url": "https://api.github.com/users/aglsk/followers",
+    "following_url": "https://api.github.com/users/aglsk/following{/other_user}",
+    "gists_url": "https://api.github.com/users/aglsk/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/aglsk/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/aglsk/subscriptions",
+    "organizations_url": "https://api.github.com/users/aglsk/orgs",
+    "repos_url": "https://api.github.com/users/aglsk/repos",
+    "events_url": "https://api.github.com/users/aglsk/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/aglsk/received_events",
+    "type": "User",
+    "site_admin": false,
+    "contributions": 44
+  },
+  {
+    "login": "antsummer",
+    "id": 171992413,
+    "node_id": "U_kgDOCkBlXQ",
+    "avatar_url": "https://avatars.githubusercontent.com/u/171992413?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/antsummer",
+    "html_url": "https://github.com/antsummer",
+    "followers_url": "https://api.github.com/users/antsummer/followers",
+    "following_url": "https://api.github.com/users/antsummer/following{/other_user}",
+    "gists_url": "https://api.github.com/users/antsummer/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/antsummer/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/antsummer/subscriptions",
+    "organizations_url": "https://api.github.com/users/antsummer/orgs",
+    "repos_url": "https://api.github.com/users/antsummer/repos",
+    "events_url": "https://api.github.com/users/antsummer/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/antsummer/received_events",
+    "type": "User",
+    "site_admin": false,
+    "contributions": 4
+  }
+]
