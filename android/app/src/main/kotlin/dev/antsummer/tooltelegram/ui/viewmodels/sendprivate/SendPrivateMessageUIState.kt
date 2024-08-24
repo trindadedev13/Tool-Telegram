@@ -1,5 +1,7 @@
 package dev.antsummer.tooltelegram.ui.viewmodels.sendprivate
 
+import android.content.Context
+
 data class SendPrivateMessageUIState(
       val chatId: String = "-100",
       val token: String = "",
@@ -8,5 +10,5 @@ data class SendPrivateMessageUIState(
       val onChatIdChange: (String) -> Unit = {},
       val onTokenChange: (String) -> Unit = {},
       val onMessageChange: (String) -> Unit = {},
-      val onClickToSend: (String, String, String) -> Unit {}
+      val onClickToSend: (String, String, String, Context) -> Unit {}
 )
