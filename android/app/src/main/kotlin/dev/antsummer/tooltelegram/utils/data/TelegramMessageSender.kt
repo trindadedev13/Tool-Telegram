@@ -7,7 +7,7 @@ import dev.antsummer.tooltelegram.utils.network.RequestListener
 
 class TelegramMessageSender(private val context: Context) {
 
-    fun sendMessage(chatId: String, token: String, message: String, callback: SendMessageCallback) {
+    fun sendMessage(chatId: String, token: String, message: String, callback: Callback) {
         val url = "https://api.telegram.org/bot$token/sendMessage"
         val headers = HashMap<String, String>().apply {
             put("Content-Type", "application/x-www-form-urlencoded")
