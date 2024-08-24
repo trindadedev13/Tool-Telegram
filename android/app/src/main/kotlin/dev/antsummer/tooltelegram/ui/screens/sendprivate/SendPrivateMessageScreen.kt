@@ -41,6 +41,8 @@ fun SendPrivateMessageScreen() {
     val chatId = uiState.chatId
     val token = uiState.token
     val message = uiState.message
+    
+    val defaultModifier = Modifier.fillMaxWidth()
 
     ApplicationScreen(
         modifier = Modifier.padding(start = 10.dp, end = 10.dp),
@@ -61,6 +63,7 @@ fun SendPrivateMessageScreen() {
                     stringResource(id = R.string.send_private_message),
                     content = {
                         OutlinedTextField(
+                            modifier = defaultModifier,
                             value = chatId,
                             onValueChange = {
                                 uiState.onChatIdChange(it)
@@ -73,6 +76,7 @@ fun SendPrivateMessageScreen() {
                         )
 
                         OutlinedTextField(
+                            modifier = defaultModifier,
                             value = token,
                             onValueChange = {
                                 uiState.onTokenChange(it)
@@ -85,6 +89,7 @@ fun SendPrivateMessageScreen() {
                         )
 
                         OutlinedTextField(
+                            modifier = defaultModifier,
                             value = message,
                             onValueChange = {
                                 uiState.onMessageChange(it)
@@ -95,6 +100,12 @@ fun SendPrivateMessageScreen() {
                                 )
                             }
                         )
+                        Button(
+                            modifier = defaultModifier,
+                            onClick = {}
+                        ){
+                            Text(text = stringResource(id= R.string.send))
+                        }
                     }
                 )
             }
