@@ -6,4 +6,5 @@
     <string name="chat_id_label">Chat ID</string>
     <string name="token_label">Bot Token</string>
     <string name="message_label">Message</string>
+    <string name="send_label">Send</string>
 </resources>

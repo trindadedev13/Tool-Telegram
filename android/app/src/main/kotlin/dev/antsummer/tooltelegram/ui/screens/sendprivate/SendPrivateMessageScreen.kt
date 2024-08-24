@@ -104,7 +104,7 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             onClick = {}
                         ){
-                            Text(text = stringResource(id= R.string.send))
+                            Text(text = stringResource(id= R.string.send_label))
                         }
                     }
                 )
