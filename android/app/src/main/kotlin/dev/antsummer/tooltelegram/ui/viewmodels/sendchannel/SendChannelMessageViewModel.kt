@@ -1,4 +1,4 @@
-package dev.antsummer.tooltelegram.ui.viewmodels.sendchannels
+package dev.antsummer.tooltelegram.ui.viewmodels.sendchannel
 
 import androidx.lifecycle.ViewModel
 
