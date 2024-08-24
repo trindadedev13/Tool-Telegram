@@ -21,7 +21,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.ErrorCircle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -124,7 +123,7 @@ fun SendPrivateMessageScreen() {
                                        onConfirmation = { isShowDialog = false },
                                        dialogTitle = stringResource(id = R.string.dialog_error_title),
                                        dialogText = stringResource(id = R.string.dialog_error_text),
-                                       icon = Icons.Filled.ErrorCircle,
+                                       icon = Icons.Filled.CheckCircle,
                                        iconDescription = stringResource(id = R.string.dialog_error_title)
                                    )
                                 }
