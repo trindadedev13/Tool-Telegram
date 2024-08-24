@@ -32,7 +32,7 @@ class SendPrivateMessageViewModel : ViewModel() {
                 },
                 onClickToSend = { cid, token, msg, ctx ->
                     val sender = TelegramMessageSender(ctx)
-                    sender.sendMessage(cid, token, msg, object : TelegramMessageSender.SendMessageCallback {
+                    sender.sendMessage(cid, token, msg, object : TelegramMessageSender.Callback {
                         override fun onSuccess(response: String) {
                             _uiState.update {
                                 it.copy(isSuccess = true)

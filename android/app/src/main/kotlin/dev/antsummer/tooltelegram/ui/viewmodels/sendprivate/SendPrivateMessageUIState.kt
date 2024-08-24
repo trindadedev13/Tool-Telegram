@@ -10,5 +10,5 @@ data class SendPrivateMessageUIState(
       val onChatIdChange: (String) -> Unit = {},
       val onTokenChange: (String) -> Unit = {},
       val onMessageChange: (String) -> Unit = {},
-      val onClickToSend: (String, String, String, Context) -> Unit = {}
+      val onClickToSend: (String, String, String, Context) -> Unit = { chat id, token, context -> }
 )
