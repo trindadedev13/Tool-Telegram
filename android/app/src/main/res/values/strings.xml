@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tool Telegram</string>
+    <string name="send_private_message">Send private message (Bot)</string>
+    <string name="send_channel_message">Send message in channel (Bot)</string>
+    <string name="chat_id_label">Chat ID</string>
+    <string name="token_label">Bot Token</string>
+    <string name="message_label">Message</string>
+</resources>

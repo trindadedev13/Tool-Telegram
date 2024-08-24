@@ -34,7 +34,7 @@ jobs:
       - name: Build Jekyll site from Tool Telegram Website
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./Tool Telegram Website/website
+          source: ./landing-website/website
           destination: ./_site
 
       - name: Build Jekyll site from website
