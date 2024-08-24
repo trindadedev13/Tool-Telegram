@@ -85,7 +85,7 @@ private val DarkColorScheme = darkColorScheme(
 @Composable
 fun AntSummerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    highContrastDarkTheme: Boolean = false,
+    highContrastDarkTheme: Boolean = true,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit,

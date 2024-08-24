@@ -63,13 +63,12 @@ fun SendPrivateMessageScreen() {
             } else {
                 dialogTitle = stringResource(id = R.string.dialog_error_title)
                 dialogText = stringResource(id = R.string.dialog_error_text)
-                dialogIcon = painterResource(R.drawable.ic_error_24)
+                dialogIcon = getErrorIcon() // Função composable para obter o ícone
                 dialogIconDescription = stringResource(id = R.string.dialog_error_title)
             }
         }
     }
     
-
     ApplicationScreen(
         modifier = Modifier.padding(start = 10.dp, end = 10.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -150,4 +149,9 @@ fun SendPrivateMessageScreen() {
             iconDescription = dialogIconDescription
         )
     }
+}
+
+@Composable
+fun getErrorIcon(): Painter {
+    return painterResource(id = R.drawable.ic_error_24)
 }
