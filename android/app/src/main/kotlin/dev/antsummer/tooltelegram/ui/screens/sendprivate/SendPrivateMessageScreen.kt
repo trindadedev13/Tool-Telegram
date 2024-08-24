@@ -58,15 +58,15 @@ fun SendPrivateMessageScreen() {
         if (uiState.isSuccess != null) {
             isShowDialog = true
             if (uiState.isSuccess) {
-                dialogTitle = stringResource(id = R.string.dialog_success_title)
-                dialogText = stringResource(id = R.string.dialog_success_text)
+                dialogTitle = getString(R.string.dialog_success_title)
+                dialogText = getString(R.string.dialog_success_text)
                 dialogIcon = Icons.Filled.CheckCircle
-                dialogIconDescription = stringResource(id = R.string.dialog_success_title)
+                dialogIconDescription = getString(R.string.dialog_success_title)
             } else {
-                dialogTitle = stringResource(id = R.string.dialog_error_title)
-                dialogText = stringResource(id = R.string.dialog_error_text)
+                dialogTitle = getString(R.string.dialog_error_title)
+                dialogText = getString(R.string.dialog_error_text)
                 dialogIcon = Icons.Filled.CheckCircle
-                dialogIconDescription = stringResource(id = R.string.dialog_error_title)
+                dialogIconDescription = getString(R.string.dialog_error_title)
             }
         }
     }
