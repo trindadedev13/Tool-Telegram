@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.filled.CheckCircle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -45,6 +44,29 @@ fun SendPrivateMessageScreen() {
     val message = uiState.message
     val context = LocalContext.current
     val defaultModifier = Modifier.fillMaxWidth()
+    
+    var isShowDialog by remember { mutableStateOf(false) }
+    var dialogTitle by remember { mutableStateOf("") }
+    var dialogText by remember { mutableStateOf("") }
+    var dialogIcon by remember { mutableStateOf(Icons.Filled.CheckCircle) }
+    var dialogIconDescription by remember { mutableStateOf("") }
+
+    LaunchedEffect(uiState.isSuccess) {
+        if (uiState.isSuccess != null) {
+            isShowDialog = true
+            if (uiState.isSuccess) {
+                dialogTitle = stringResource(id = R.string.dialog_success_title)
+                dialogText = stringResource(id = R.string.dialog_success_text)
+                dialogIcon = Icons.Filled.CheckCircle
+                dialogIconDescription = stringResource(id = R.string.dialog_success_title)
+            } else {
+                dialogTitle = stringResource(id = R.string.dialog_error_title)
+                dialogText = stringResource(id = R.string.dialog_error_text)
+                dialogIcon = Icons.Filled.Error
+                dialogIconDescription = stringResource(id = R.string.dialog_error_title)
+            }
+        }
+    }
     
 
     ApplicationScreen(
@@ -107,26 +129,6 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             onClick = {
                                 uiState.onClickToSend(chatId, token, message, context)
-                                var isShowDialog by remember { mutableStateOf(true) }
-                                if (uiState.isSuccess) {
-                                   TDialog(
-                                       onDismissRequest = { isShowDialog = false },
-                                       onConfirmation = { isShowDialog = false },
-                                       dialogTitle = stringResource(id = R.string.dialog_success_title)
-                                       dialogText = stringResource(id = R.string.dialog_success_text)
-                                       icon = Icons.Filled.CheckCircle,
-                                       iconDescription = stringResource(id = R.string.dialog_success_title)
-                                   )
-                                } else {
-                                   TDialog(
-                                       onDismissRequest = { isShowDialog = false },
-                                       onConfirmation = { isShowDialog = false },
-                                       dialogTitle = stringResource(id = R.string.dialog_error_title),
-                                       dialogText = stringResource(id = R.string.dialog_error_text),
-                                       icon = Icons.Filled.CheckCircle,
-                                       iconDescription = stringResource(id = R.string.dialog_error_title)
-                                   )
-                                }
                             }
                         ){
                             Text(text = stringResource(id= R.string.send_label))
@@ -136,4 +138,15 @@ fun SendPrivateMessageScreen() {
             }
         }
     )
+    
+    if (isShowDialog) {
+        TDialog(
+            onDismissRequest = { isShowDialog = false },
+            onConfirmation = { isShowDialog = false },
+            dialogTitle = dialogTitle,
+            dialogText = dialogText,
+            icon = dialogIcon,
+            iconDescription = dialogIconDescription
+        )
+    }
 }
