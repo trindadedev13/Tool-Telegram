@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Settings
 import androidx.navigation.compose.NavHost
@@ -104,7 +105,7 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             onClick = {
                                 uiState.onClickToSend(chatId, token, message, context)
-                            )
+                            }
                         ){
                             Text(text = stringResource(id= R.string.send_label))
                         }
