@@ -20,6 +20,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material3.icons.Icons
+import androidx.compose.material3.icons.filled.CheckCircle
+import androidx.compose.material3.icons.filled.Error
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -30,6 +33,7 @@ import dev.antsummer.tooltelegram.ui.theme.AntSummerTheme
 import dev.antsummer.tooltelegram.ui.components.ApplicationScreen
 import dev.antsummer.tooltelegram.ui.components.appbars.TopBar
 import dev.antsummer.tooltelegram.ui.components.cards.SimpleCard
+import dev.antsummer.tooltelegram.ui.components.dialog.TDialog
 import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageViewModel
 import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUIState
 
@@ -105,6 +109,26 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             onClick = {
                                 uiState.onClickToSend(chatId, token, message, context)
+                                var isShowDialog by remember { mutableStateOf(true) }
+                                if (uiState.isSuccess) {
+                                   TDialog(
+                                       onDismissRequest = { isShowDialog = false },
+                                       onConfirmation = { isShowDialog = false },
+                                       dialogTitle = stringResource(id = R.string.dialog_success_title)
+                                       dialogText = stringResource(id = R.string.dialog_success_text)
+                                       icon = Icons.Filled.CheckCircle,
+                                       iconDescription = stringResource(id = R.string.dialog_success_title)
+                                   )
+                                } else {
+                                   TDialog(
+                                       onDismissRequest = { isShowDialog = false },
+                                       onConfirmation = { isShowDialog = false },
+                                       dialogTitle = stringResource(id = R.string.dialog_error_title),
+                                       dialogText = stringResource(id = R.string.dialog_error_text),
+                                       icon = Icons.Filled.Error,
+                                       iconDescription = stringResource(id = R.string.dialog_error_title)
+                                   )
+                                }
                             }
                         ){
                             Text(text = stringResource(id= R.string.send_label))

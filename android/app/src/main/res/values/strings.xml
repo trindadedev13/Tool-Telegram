@@ -7,4 +7,8 @@
     <string name="token_label">Bot Token</string>
     <string name="message_label">Message</string>
     <string name="send_label">Send</string>
+    <string name="dialog_success_title">Success!</string>
+    <string name="dialog_success_text">Your message has been sent successfully!</string>
+    <string name="dialog_error_title">Error!</string>
+    <string name="dialog_error_text">An error occurred while sending your message!</string>
 </resources>
