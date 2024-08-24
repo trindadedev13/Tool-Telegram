@@ -34,7 +34,7 @@ class TelegramMessageSender(private val context: Context) {
         })
     }
 
-    interface SendMessageCallback {
+    interface Callback {
         fun onSuccess(response: String)
         fun onError(error: String)
     }

@@ -37,12 +37,12 @@ import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUI
 fun SendPrivateMessageScreen() {
     val viewModel: SendPrivateMessageViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
-
     val chatId = uiState.chatId
     val token = uiState.token
     val message = uiState.message
-    
+    val context = LocalContext.current
     val defaultModifier = Modifier.fillMaxWidth()
+    
 
     ApplicationScreen(
         modifier = Modifier.padding(start = 10.dp, end = 10.dp),
@@ -102,7 +102,9 @@ fun SendPrivateMessageScreen() {
                         )
                         Button(
                             modifier = defaultModifier,
-                            onClick = {}
+                            onClick = {
+                                uiState.onClickToSend(chatId, token, message, context)
+                            )
                         ){
                             Text(text = stringResource(id= R.string.send_label))
                         }
