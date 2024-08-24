@@ -25,6 +25,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 
 import dev.antsummer.tooltelegram.R
 import dev.antsummer.tooltelegram.ui.theme.AntSummerTheme
@@ -63,7 +65,7 @@ fun SendPrivateMessageScreen() {
             } else {
                 dialogTitle = stringResource(id = R.string.dialog_error_title)
                 dialogText = stringResource(id = R.string.dialog_error_text)
-                dialogIcon = getErrorIcon() // Função composable para obter o ícone
+                dialogIcon = getErrorIcon() 
                 dialogIconDescription = stringResource(id = R.string.dialog_error_title)
             }
         }
