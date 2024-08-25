@@ -1,3 +1,3 @@
-# Tool Telegram Remake
+# Tool Telegram
 
-- recreation of the [tool-telegram application](https://github.com/aglsk/tool-telegram-oficial) with material design 3 and Jetpack Compose.
+- Tool Telegram Android app with material design 3 and Jetpack Compose.

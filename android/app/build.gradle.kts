@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "org.lowsummer.tooltelegram"
+    namespace = "org.gampiot.tooltelegram"
     compileSdk = 34
     
     defaultConfig {
-        applicationId = "org.lowsummer.tooltelegram"
+        applicationId = "org.gampiot.tooltelegram"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
