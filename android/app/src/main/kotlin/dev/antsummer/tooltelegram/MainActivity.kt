@@ -32,7 +32,7 @@ import dev.antsummer.tooltelegram.ui.components.ApplicationScreen
 import dev.antsummer.tooltelegram.ui.components.appbars.TopBar
 import dev.antsummer.tooltelegram.ui.components.cards.SimpleCard
 import dev.antsummer.tooltelegram.ui.screens.sendprivate.SendPrivateMessageScreen
-import dev.antsummer.tooltelegram.ui.screens.sendchannel.SendChannelMessageScreen
+import dev.antsummer.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -82,7 +82,7 @@ class MainActivity : ComponentActivity() {
                  ) {
                       composable("main") {
                            MainScreen(
-                                onSendChannelMessageClicked = {
+                                onSendCommunityMessageClicked = {
                                        navController.navigate("sendChannel")
                                 },
                                 onSendPrivateMessageClicked = {
@@ -94,7 +94,7 @@ class MainActivity : ComponentActivity() {
                            SendPrivateMessageScreen()
                       }
                       composable("sendChannel") {
-                           SendChannelMessageScreen()
+                           SendCommunityMessageScreen()
                       }
                  }
             }
@@ -105,7 +105,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
-    onSendChannelMessageClicked: () -> Unit,
+    onSendCommunityMessageClicked: () -> Unit,
     onSendPrivateMessageClicked: () -> Unit
 ) {
     ApplicationScreen(
@@ -137,7 +137,7 @@ fun MainScreen(
                                   }
                                   Spacer(modifier = Modifier.weight(1F))
                                   Button(
-                                       onClick = onSendChannelMessageClicked
+                                       onClick = onSendCommunityMessageClicked
                                   ) {
                                        Text(
                                            text = stringResource(id = R.string.send_channel_message)

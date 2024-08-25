@@ -1,4 +1,4 @@
-package dev.antsummer.tooltelegram.ui.screens.sendchannel
+package dev.antsummer.tooltelegram.ui.screens.sendcommunity
 
 import android.os.Bundle
 
@@ -30,7 +30,7 @@ import dev.antsummer.tooltelegram.ui.components.appbars.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SendChannelMessageScreen() {
+fun SendCommunityMessageScreen() {
     ApplicationScreen(
           modifier = Modifier.padding(start = 10.dp, end = 10.dp),
           verticalArrangement = Arrangement.spacedBy(8.dp),
