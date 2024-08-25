@@ -59,8 +59,7 @@ jobs:
     name: Send Release APK
     runs-on: ubuntu-latest
     needs: build_signed_release_apk
-    env:
-         APK_FILE_NAME: "tool-telegram-release.apk"
+    
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -80,7 +79,7 @@ jobs:
           
       - name: Rename file 
         run: |
-          mv app-release-unsigned-signed.apk $APK_FILE_NAME
+          mv app-release-unsigned-signed.apk tool-telegram-release.apk
           ls 
 
       - name: Send APK to Release Channel Telegram
@@ -90,7 +89,7 @@ jobs:
           to: -1002230892820
           token: ${{ secrets.TELEGRAM_SIMPLE_BOT_TOKEN }}
           format: markdown
-          document: $APK_FILE_NAME
+          document: tool-telegram-release.apk
           disable_web_page_preview: false
           message: |
             *${{ github.actor }}* committed to [${{ github.repository }}](https://github.com/${{ github.repository }})
