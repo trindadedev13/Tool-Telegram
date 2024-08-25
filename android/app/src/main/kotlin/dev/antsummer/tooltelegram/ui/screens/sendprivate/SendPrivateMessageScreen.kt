@@ -80,7 +80,7 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             value = chatId,
                             onValueChange = {
-                                uiState.onChatIdChange(it)
+                                viewModel.onChatIdChange(it)
                             },
                             label = {
                                 Text(
@@ -93,7 +93,7 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             value = token,
                             onValueChange = {
-                                uiState.onTokenChange(it)
+                                viewModel.onTokenChange(it)
                             },
                             label = {
                                 Text(
@@ -106,7 +106,7 @@ fun SendPrivateMessageScreen() {
                             modifier = defaultModifier,
                             value = message,
                             onValueChange = {
-                                uiState.onMessageChange(it)
+                                viewModel.onMessageChange(it)
                             },
                             label = {
                                 Text(
@@ -117,7 +117,7 @@ fun SendPrivateMessageScreen() {
                         Button(
                             modifier = defaultModifier,
                             onClick = {
-                                uiState.onClickToSend(chatId, token, message, context)
+                                viewModel.onClickToSend(chatId, token, message, context)
                             }
                         ) {
                             Text(text = stringResource(id = R.string.send_label))
