@@ -1,7 +1,5 @@
 package dev.antsummer.tooltelegram.ui.screens.sendcommunity
 
-package dev.antsummer.tooltelegram.ui.screens.sendcommunity
-
 import android.os.Bundle
 
 import androidx.activity.ComponentActivity
