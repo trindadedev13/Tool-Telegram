@@ -45,16 +45,15 @@ fun SendPrivateMessageScreen() {
     val chatId = uiState.chatId
     val token = uiState.token
     val message = uiState.message
+    val isSuccess = uiState.isSuccess
     val context = LocalContext.current
     val defaultModifier = Modifier.fillMaxWidth()
-    
-    var isShowDialog by remember { mutableStateOf(false) }
-    var isSuccess by remember { mutableStateOf(false) }
 
-    LaunchedEffect(uiState.isSuccess) {
-        uiState.isSuccess?.let { success ->
-            isSuccess = success
-            isShowDialog = true
+    val isShowDialog = remember { mutableStateOf(false) }
+
+    LaunchedEffect(isSuccess) {
+        isSuccess?.let {
+            isShowDialog.value = true
         }
     }
 
@@ -128,11 +127,11 @@ fun SendPrivateMessageScreen() {
         }
     )
 
-    if (isShowDialog) {
-        if (isSuccess) {
-            sd { isShowDialog = false }
+    if (isShowDialog.value) {
+        if (isSuccess == true) {
+            sd { isShowDialog.value = false }
         } else {
-            ed { isShowDialog = false }
+            ed { isShowDialog.value = false }
         }
     }
 }
