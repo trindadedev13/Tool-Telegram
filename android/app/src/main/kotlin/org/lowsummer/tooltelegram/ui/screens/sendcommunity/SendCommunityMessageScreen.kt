@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.Settings
-import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.NavController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -39,7 +39,9 @@ import org.lowsummer.tooltelegram.ui.viewmodels.sendcommunity.SendCommunityMessa
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SendCommunityMessageScreen() {
+fun SendCommunityMessageScreen(
+    val navController: NavController = null
+) {
     val viewModel: SendCommunityMessageViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
     val chatId = uiState.chatId
@@ -67,7 +69,10 @@ fun SendCommunityMessageScreen() {
         topBar = {
             TopBar(
                 barTitle = stringResource(id = R.string.send_community_message),
-                scrollBehavior = it
+                scrollBehavior = it,
+                onClickBackButton = {
+                    navController.popBackStack()
+                }
             )
         },
         content = {

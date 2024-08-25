@@ -91,10 +91,10 @@ class MainActivity : ComponentActivity() {
                            )
                       }
                       composable("sendPrivate") {
-                           SendPrivateMessageScreen()
+                           SendPrivateMessageScreen(navController)
                       }
                       composable("sendChannel") {
-                           SendCommunityMessageScreen()
+                           SendCommunityMessageScreen(navController)
                       }
                  }
             }
