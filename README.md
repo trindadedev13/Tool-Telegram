@@ -6,10 +6,6 @@ Welcome to Tool Telegram! This project is designed for Telegram group and channe
 
 Our goal is to integrate multiple tools into a single platform, providing an exceptional user experience. We developed this application with a focus on usability and efficiency, so you can focus on what truly matters.
 
-## About the Creator
-
-Tool Telegram was developed by AGL SK, a professional passionate about technology and innovation. With extensive experience in creating digital solutions, AGL SK is dedicated to delivering high-quality products that meet users' needs.
-
 ## Documentation
 
 Find all the necessary documentation to efficiently use Tool Telegram. Here you will have access to tutorials, FAQs, and detailed guides that will help you make the most out of all the features offered.
@@ -51,6 +47,12 @@ To authenticate, provide your Chat ID and Bot API Token:
 #### Response
 
 - **Success**: "Message sent successfully!"
+
+## About the Creator
+
+The Tool-Telegram website was created by [AGL SK](https://github.com/aglsk/). 
+The Tool-Telegram Android App was created by [Aquiles Trindade](https://github.com/antsummer) *this is his current account as of now (08/25/24).
+
 
 ## License
 
