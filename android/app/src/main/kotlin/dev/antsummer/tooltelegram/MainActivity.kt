@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 
     companion object {
          const val MSAX_SLIDE_DISTANCE: Int = 100
-         const val MSAX_DURATION: Int = 1100
+         const val MSAX_DURATION: Int = 700
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
