@@ -12,8 +12,8 @@ on:
       - android/**
 
 jobs:
-  build_signed_debug_apk:
-    name: Build and Sign App Debug APK
+  build_signed_release_apk:
+    name: Build and Sign App Release APK
     runs-on: ubuntu-latest
 
     steps:
@@ -34,14 +34,14 @@ jobs:
         uses: gradle/actions/wrapper-validation@v4
 
       - name: Build with Gradle
-        id: gradle_build_debug
-        run: ./android/gradlew assembleDebug -p android
+        id: gradle_build_release
+        run: ./android/gradlew assembleRelease -p android
 
       - name: Sign APK
-        id: sign_apk_debug
+        id: sign_apk_release
         uses: noriban/sign-android-release@v5
         with:
-          releaseDirectory: android/app/build/outputs/apk/debug
+          releaseDirectory: android/app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -49,23 +49,23 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "34.0.0"
 
-      - name: Upload signed debug apk
+      - name: Upload signed release apk
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug-signed
-          path: ${{ steps.sign_apk_debug.outputs.signedReleaseFile }}
+          name: app-release-signed
+          path: ${{ steps.sign_apk_release.outputs.signedReleaseFile }}
           
   send_release_apk:
-    name: Send Low Summer Release APK
+    name: Send Release APK
     runs-on: ubuntu-latest
-    needs: build_signed_debug_apk
+    needs: build_signed_release_apk
     steps:
       - name: Download signed release apk
         uses: actions/download-artifact@v4
         with:
-          name: app-debug-signed
+          name: app-release-signed
 
-      - name: Send APK to Low Summer CI Telegram
+      - name: Send APK to Release Channel Telegram
         if: success()
         uses: appleboy/telegram-action@master
         with:
@@ -75,7 +75,7 @@ jobs:
           document: ${{ steps.download_release_apk.outputs.file_path }}
           disable_web_page_preview: false
           message: |
-            *Build Success!*
+            *Release Build Success!*
             Repository: *${{ github.repository }}*
             Branch: *${{ github.ref_name }}*
             Type: release
