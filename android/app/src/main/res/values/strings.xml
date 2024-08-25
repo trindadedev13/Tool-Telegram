@@ -11,6 +11,7 @@
     <string name="send_label">Send</string>
     <string name="topic_id_label">Topic ID</string>
     <string name="image_url_label">Image URL</string>
+    <string name="settings_label">Settings</string>
     
     <string name="dialog_success_title">Success!</string>
     <string name="dialog_success_text">Your message has been sent successfully!</string>

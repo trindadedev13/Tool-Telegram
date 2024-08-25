@@ -31,13 +31,13 @@ import androidx.compose.ui.res.painterResource
 import dev.antsummer.tooltelegram.R
 import dev.antsummer.tooltelegram.ui.components.ApplicationScreen
 import dev.antsummer.tooltelegram.ui.components.appbars.TopBar
-import dev.antsummer.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
-import dev.antsummer.tooltelegram.ui.viewmodels.preferences.SettingsViewUIState
+import dev.antsummer.tooltelegram.ui.viewmodels.preferences.SettingsModel
+import dev.antsummer.tooltelegram.ui.viewmodels.preferences.SettingsUIState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen() {
-    val viewModel: SettingsViewModel = viewModel()
+    val viewModel: SettingsModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
     
     val context = LocalContext.current
