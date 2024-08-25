@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-import dev.antsummer.tooltelegram.utils.data.TelegramMessageSender
+import dev.antsummer.tooltelegram.data.TelegramMessageSender
 
 class SendPrivateMessageViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(SendPrivateMessageUIState())

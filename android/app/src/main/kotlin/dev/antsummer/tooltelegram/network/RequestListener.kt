@@ -1,4 +1,4 @@
-package dev.antsummer.tooltelegram.utils.network
+package dev.antsummer.tooltelegram.network
 
 // from gampiot-inc/Oak-Store-Android
 

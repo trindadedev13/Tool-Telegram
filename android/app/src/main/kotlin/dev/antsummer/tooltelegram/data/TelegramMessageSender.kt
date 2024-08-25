@@ -1,9 +1,9 @@
-package dev.antsummer.tooltelegram.utils.data
+package dev.antsummer.tooltelegram.data
 
 import android.content.Context
 
-import dev.antsummer.tooltelegram.utils.network.RequestNetwork
-import dev.antsummer.tooltelegram.utils.network.RequestListener
+import dev.antsummer.tooltelegram.network.RequestNetwork
+import dev.antsummer.tooltelegram.network.RequestListener
 
 class TelegramMessageSender(private val context: Context) {
 
