@@ -64,6 +64,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: app-release-signed
+          
+      - name: Get the last commit message
+        id: get_commit_msg
+        run: |
+          commit_message=$(git log -1 --pretty=format:'%s')
+          echo "::set-output name=message::$commit_message"
 
       - name: Send APK to Release Channel Telegram
         if: success()
@@ -72,12 +78,10 @@ jobs:
           to: -1002230892820
           token: ${{ secrets.TELEGRAM_SIMPLE_BOT_TOKEN }}
           format: markdown
-          document: app-release-signed
+          document: app-release-unsigned-signed.apk
           disable_web_page_preview: false
           message: |
-            *Release Build Success!*
-            Repository: *${{ github.repository }}*
-            Branch: *${{ github.ref_name }}*
-            Type: release
-            Commit message: `${{ github.event.head_commit.message }}`
-            [Check the logs](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            *${{ github.actor }}* committed to *${{ github.repository }}*
+
+            Branch: *${{ github.head_ref }}*
+            Commit message: `${{ steps.get_commit_msg.outputs.message }}`
