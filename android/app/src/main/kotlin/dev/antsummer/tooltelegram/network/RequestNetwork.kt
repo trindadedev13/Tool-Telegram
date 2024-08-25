@@ -1,12 +1,11 @@
 package dev.antsummer.tooltelegram.network
 
-// from gampiot-inc/Oak-Store-Android
-
-import android.content.Context
 import android.app.Activity
+import android.content.Context
 
 import okhttp3.*
 
+import java.io.File
 import java.io.IOException
 
 class RequestNetwork(private val context: Context) {
@@ -17,8 +16,14 @@ class RequestNetwork(private val context: Context) {
     fun headersSet(headers: HashMap<String, String>) {
         this.headers = headers
     }
-
-    fun startRequestNetwork(method: String, url: String, tag: String, requestListener: RequestListener) {
+    
+    fun startRequestNetwork(
+        method: String,
+        url: String,
+        tag: String,
+        formData: HashMap<String, Any>,
+        requestListener: RequestListener
+    ) {
         this.requestListener = requestListener
 
         val client = OkHttpClient()
@@ -28,9 +33,25 @@ class RequestNetwork(private val context: Context) {
             requestBuilder.addHeader(key, value)
         }
 
+        val requestBody = if (method == "POST" && formData.isNotEmpty()) {
+            val multipartBuilder = MultipartBody.Builder().setType(MultipartBody.FORM)
+
+            formData.forEach { (key, value) ->
+                when (value) {
+                    is File -> multipartBuilder.addFormDataPart(key, value.name, value.asRequestBody())
+                    is String -> multipartBuilder.addFormDataPart(key, value)
+                    else -> throw IllegalArgumentException("Unsupported value type: ${value::class.java}")
+                }
+            }
+            multipartBuilder.build()
+        } else {
+            null
+        }
+
         val request = when (method) {
             "GET" -> requestBuilder.get().build()
-            else -> requestBuilder.build()
+            "POST" -> requestBuilder.post(requestBody!!).build()
+            else -> throw IllegalArgumentException("Unsupported method: $method")
         }
 
         client.newCall(request).enqueue(object : Callback {

@@ -1,17 +1,19 @@
 package dev.antsummer.tooltelegram.data
 
 import android.content.Context
+
 import dev.antsummer.tooltelegram.network.RequestNetwork
 import dev.antsummer.tooltelegram.network.RequestListener
+
 import java.io.File
 
 class TelegramMessageSender(private val context: Context) {
 
     fun sendMessage(
-       chatId: String,
-       token: String, 
-       message: String, 
-       callback: Callback
+        chatId: String,
+        token: String, 
+        message: String, 
+        callback: Callback
     ) {
         val url = "https://api.telegram.org/bot$token/sendMessage"
         val headers = HashMap<String, String>().apply {
@@ -28,7 +30,7 @@ class TelegramMessageSender(private val context: Context) {
         val requestNetwork = RequestNetwork(context)
         requestNetwork.headersSet(headers)
 
-        requestNetwork.startRequestNetwork("POST", "$url?$queryString", "TelegramAPI", object : RequestListener {
+        requestNetwork.startRequestNetwork("GET", "$url?$queryString", "TelegramAPI", object : RequestListener { 
             override fun onResponse(tag: String, response: String, responseHeader: HashMap<String, String>) {
                 callback.onSuccess(response)
             }
@@ -38,7 +40,7 @@ class TelegramMessageSender(private val context: Context) {
             }
         })
     }
-
+    
     fun sendMessage(
         chatId: String,
         token: String,
