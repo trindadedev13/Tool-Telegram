@@ -53,7 +53,7 @@ fun SendCommunityMessageScreen() {
     
     val defaultModifier = Modifier.fillMaxWidth()
     
-    val isShowDialog = remember { mutableStateOf(null) }
+    val isShowDialog = remember { mutableStateOf(false) }
 
     LaunchedEffect(isSuccess) {
         isSuccess?.let {
