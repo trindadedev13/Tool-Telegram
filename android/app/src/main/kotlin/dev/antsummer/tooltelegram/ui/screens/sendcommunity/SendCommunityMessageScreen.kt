@@ -36,7 +36,7 @@ fun SendCommunityMessageScreen() {
           verticalArrangement = Arrangement.spacedBy(8.dp),
           topBar = {
                TopBar(
-                    barTitle = stringResource(id = R.string.send_channel_message),
+                    barTitle = stringResource(id = R.string.send_community_message),
                     scrollBehavior = it
                )
           },

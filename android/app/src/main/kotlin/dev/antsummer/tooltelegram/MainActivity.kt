@@ -140,7 +140,7 @@ fun MainScreen(
                                        onClick = onSendCommunityMessageClicked
                                   ) {
                                        Text(
-                                           text = stringResource(id = R.string.send_channel_message)
+                                           text = stringResource(id = R.string.send_community_message)
                                        )
                                   }
                              }
