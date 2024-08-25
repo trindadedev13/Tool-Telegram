@@ -13,7 +13,7 @@
         android:supportsRtl="true" 
         android:theme="@style/AntSummerTheme">
         <activity 
-            android:name="dev.antsummer.tooltelegram.MainActivity" 
+            android:name="org.lowsummer.tooltelegram.MainActivity" 
             android:exported="true">
             <intent-filter>
                 <action 

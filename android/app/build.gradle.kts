@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.antsummer.tooltelegram"
+    namespace = "org.lowsummer.tooltelegram"
     compileSdk = 34
     
     defaultConfig {
-        applicationId = "dev.antsummer.tooltelegram"
+        applicationId = "org.lowsummer.tooltelegram"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
