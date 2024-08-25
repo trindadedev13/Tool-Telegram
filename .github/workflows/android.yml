@@ -97,3 +97,9 @@ jobs:
 
             Branch: *${{ github.head_ref }}*
             Commit message: `${{ steps.get_commit_msg.outputs.message }}`
+            
+      - name: Upload all
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-repo-now
+          path: ./
