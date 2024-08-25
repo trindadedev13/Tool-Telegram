@@ -1,0 +1,53 @@
+name: GitHub Contributors
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  github-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get GitHub Contributors
+        id: get_contributors
+        run: |
+          curl -H "Authorization: token ${{ secrets.TOKEN }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/${{ github.repository }}/contributors \
+               -o contributors/contributors_github_temp.json
+
+      - name: Install Python and jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip jq
+
+      - name: Combine JSON Data
+        run: |
+          python3 contributors/logic/combine_json.py
+          mv contributors/contributors_combined.json contributors/contributors_github.json
+
+      - name: Format Contributors Table
+        run: |
+          python3 contributors/logic/format_contributors.py
+
+      - name: Check if there are changes
+        id: check_changes
+        run: |
+          git fetch origin main
+          git status
+          echo "these are the changes "
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "gampiot-bot"
+          git config --global user.email "gampiot.inc@gmail.com"
+          git add .
+          git commit -m "chore: update github contributors"
+          git branch -M main
+          git push origin main
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
