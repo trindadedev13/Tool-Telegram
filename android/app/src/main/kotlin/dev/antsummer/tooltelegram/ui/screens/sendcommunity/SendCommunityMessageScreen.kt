@@ -162,12 +162,12 @@ fun SendCommunityMessageScreen() {
         if (isSuccess == true) {
             sd {
                isShowDialog.value = false
-               viewModel.onIsSuccessChange(false)
+               // viewModel.onIsSuccessChange(false)
             }
         } else {
             ed {
                isShowDialog.value = false
-               viewModel.onIsSuccessChange(false)
+               // viewModel.onIsSuccessChange(false)
             }
         }
     }

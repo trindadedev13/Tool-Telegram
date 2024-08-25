@@ -131,12 +131,12 @@ fun SendPrivateMessageScreen() {
         if (isSuccess == true) {
             sd {
                isShowDialog.value = false
-               viewModel.onIsSuccessChange(false)
+               // viewModel.onIsSuccessChange(null)
             }
         } else {
             ed {
                isShowDialog.value = false
-               viewModel.onIsSuccessChange(false)
+               // viewModel.onIsSuccessChange(null)
             }
         }
     }
