@@ -12,8 +12,8 @@ on:
       - android/**
 
 jobs:
-  build_debug_apk:
-    name: Build App Debug APK
+  build_signed_debug_apk:
+    name: Build and Sign App Debug APK
     runs-on: ubuntu-latest
 
     steps:
@@ -32,13 +32,52 @@ jobs:
 
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
-      
+
       - name: Build with Gradle
         id: gradle_build_debug
         run: ./android/gradlew assembleDebug -p android
 
-      - name: Upload debug apk
+      - name: Sign APK
+        id: sign_apk_debug
+        uses: noriban/sign-android-release@v5
+        with:
+          releaseDirectory: android/app/build/outputs/apk/debug
+          signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
+          alias: ${{ secrets.KEYSTORE_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "34.0.0"
+
+      - name: Upload signed debug apk
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: android/app/build/outputs/apk/debug
+          name: app-debug-signed
+          path: ${{ steps.sign_apk_debug.outputs.signedReleaseFile }}
+          
+  send_release_apk:
+    name: Send Low Summer Release APK
+    runs-on: ubuntu-latest
+    needs: build_signed_debug_apk
+    steps:
+      - name: Download signed release apk
+        uses: actions/download-artifact@v4
+        with:
+          name: app-debug-signed
+
+      - name: Send APK to Low Summer CI Telegram
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: -1002230892820
+          token: ${{ secrets.TELEGRAM_SIMPLE_BOT_TOKEN }}
+          format: markdown
+          document: ${{ steps.download_release_apk.outputs.file_path }}
+          disable_web_page_preview: false
+          message: |
+            *Build Success!*
+            Repository: *${{ github.repository }}*
+            Branch: *${{ github.ref_name }}*
+            Type: release
+            Commit message: `${{ github.event.head_commit.message }}`
+            [Check the logs](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
