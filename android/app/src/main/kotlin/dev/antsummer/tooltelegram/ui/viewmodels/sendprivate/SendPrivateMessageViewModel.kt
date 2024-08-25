@@ -37,12 +37,14 @@ class SendPrivateMessageViewModel : ViewModel() {
                             _uiState.update {
                                 it.copy(isSuccess = true)
                             }
+                            _uiState.onSendSuccess(response)
                         }
 
                         override fun onError(error: String) {
                             _uiState.update {
                                 it.copy(isSuccess = false)
                             }
+                            _uiState.onSendError(error)
                         }
                     })
                 }
