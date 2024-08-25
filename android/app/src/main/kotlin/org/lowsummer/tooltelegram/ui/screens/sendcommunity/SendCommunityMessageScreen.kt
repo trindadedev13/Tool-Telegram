@@ -40,7 +40,7 @@ import org.lowsummer.tooltelegram.ui.viewmodels.sendcommunity.SendCommunityMessa
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SendCommunityMessageScreen(
-    val navController: NavController = null
+    navController: NavController = null
 ) {
     val viewModel: SendCommunityMessageViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()

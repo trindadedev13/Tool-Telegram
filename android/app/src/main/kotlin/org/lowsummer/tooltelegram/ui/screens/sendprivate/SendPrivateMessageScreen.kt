@@ -41,7 +41,7 @@ import org.lowsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUI
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SendPrivateMessageScreen(
-    val navController: NavController = null
+    navController: NavController = null
 ) {
     val viewModel: SendPrivateMessageViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
