@@ -38,7 +38,6 @@ import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageVi
 import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUIState
 
 @OptIn(ExperimentalMaterial3Api::class)
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SendPrivateMessageScreen() {
     val viewModel: SendPrivateMessageViewModel = viewModel()
