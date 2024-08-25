@@ -21,9 +21,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.Settings
-import androidx.navigation.compose.NavController
+import androidx.navigation.compose.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavController
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource

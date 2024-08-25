@@ -24,6 +24,7 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavController
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
@@ -39,7 +40,9 @@ import org.lowsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUI
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SendPrivateMessageScreen() {
+fun SendPrivateMessageScreen(
+    val navController: NavController = null
+) {
     val viewModel: SendPrivateMessageViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
     val chatId = uiState.chatId
