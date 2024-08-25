@@ -41,7 +41,7 @@ class SendCommunityMessageViewModel : ViewModel() {
     
     fun onImageUrlChange(imageUrl: String) {
         _uiState.update {
-            it.copy(imageUrl: String)
+            it.copy(imageUrl = imageUrl)
         }
     }
 
