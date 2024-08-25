@@ -43,6 +43,11 @@ class SendCommunityMessageViewModel : ViewModel() {
         _uiState.update {
             it.copy(imageUrl = imageUrl)
         }
+    
+    fun onIsSuccessChange(isSuccess: Boolean) {
+        _uiState.update { 
+            it.copy(isSuccess = isSuccess)
+        }
     }
 
     fun onClickToSend(cid: String, token: String, msg: String, imageUrl: String, context: Context) {

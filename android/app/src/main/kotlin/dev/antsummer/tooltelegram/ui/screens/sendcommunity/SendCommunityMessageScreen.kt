@@ -45,6 +45,7 @@ fun SendCommunityMessageScreen() {
     val chatId = uiState.chatId
     val token = uiState.token
     val message = uiState.message
+    val isSuccess = uiState.isSuccess
     val topicId = uiState.topicId
     val imageUrl = uiState.imageUrl
     
@@ -52,13 +53,11 @@ fun SendCommunityMessageScreen() {
     
     val defaultModifier = Modifier.fillMaxWidth()
     
-    var isShowDialog by remember { mutableStateOf(false) }
-    var isSuccess by remember { mutableStateOf(false) }
+    val isShowDialog = remember { mutableStateOf(null) }
 
-    LaunchedEffect(uiState.isSuccess) {
-        uiState.isSuccess?.let { success ->
-            isSuccess = success
-            isShowDialog = true
+    LaunchedEffect(isSuccess) {
+        isSuccess?.let {
+            isShowDialog.value = true
         }
     }
 
@@ -159,11 +158,17 @@ fun SendCommunityMessageScreen() {
         }
     )
 
-    if (isShowDialog) {
-        if (isSuccess) {
-            sd { isShowDialog = false }
+    if (isShowDialog.value) {
+        if (isSuccess == true) {
+            sd {
+               isShowDialog.value = false
+               onIsSuccessChange(false)
+            }
         } else {
-            ed { isShowDialog = false }
+            ed {
+               isShowDialog.value = false
+               onIsSuccessChange(false)
+            }
         }
     }
 }

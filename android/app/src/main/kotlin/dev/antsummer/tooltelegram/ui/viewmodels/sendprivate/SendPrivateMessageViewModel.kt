@@ -15,15 +15,27 @@ class SendPrivateMessageViewModel : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     fun onChatIdChange(chatId: String) {
-        _uiState.update { it.copy(chatId = chatId) }
+        _uiState.update { 
+            it.copy(chatId = chatId) 
+        }
     }
 
     fun onTokenChange(token: String) {
-        _uiState.update { it.copy(token = token) }
+        _uiState.update {
+            it.copy(token = token) 
+        }
     }
 
     fun onMessageChange(message: String) {
-        _uiState.update { it.copy(message = message) }
+        _uiState.update { 
+            it.copy(message = message) 
+        }
+    }
+    
+    fun onIsSuccessChange(isSuccess: Boolean) {
+        _uiState.update { 
+            it.copy(isSuccess = isSuccess)
+        }
     }
 
     fun onClickToSend(cid: String, token: String, msg: String, context: Context) {

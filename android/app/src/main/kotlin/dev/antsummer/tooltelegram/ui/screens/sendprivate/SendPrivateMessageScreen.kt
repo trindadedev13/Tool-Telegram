@@ -129,9 +129,15 @@ fun SendPrivateMessageScreen() {
 
     if (isShowDialog.value) {
         if (isSuccess == true) {
-            sd { isShowDialog.value = false }
+            sd {
+               isShowDialog.value = false
+               onIsSuccessChange(false)
+            }
         } else {
-            ed { isShowDialog.value = false }
+            ed {
+               isShowDialog.value = false
+               onIsSuccessChange(false)
+            }
         }
     }
 }
