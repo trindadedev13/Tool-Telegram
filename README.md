@@ -1,63 +1,59 @@
 # Tool Telegram
 
-Bem-vindo ao Tool Telegram! Este projeto foi desenvolvido para administradores de grupos/canais do Telegram e também para pessoas que trabalham com bots. Ele foi projetado para não divulgar o ID ou o username do proprietário; a única informação visível para o cliente é o username do bot.
+Welcome to Tool Telegram! This project is designed for Telegram group and channel administrators, as well as those working with bots. Tool Telegram ensures that your ID and other sensitive information are not disclosed.
 
-## Introdução
+## Introduction
 
-O nosso objetivo é integrar diversas ferramentas em uma única plataforma, proporcionando uma experiência de usuário excepcional. Desenvolvemos este aplicativo com foco na usabilidade e na eficiência, para que você possa se concentrar no que realmente importa.
+Our goal is to integrate multiple tools into a single platform, providing an exceptional user experience. We developed this application with a focus on usability and efficiency, so you can focus on what truly matters.
 
-## Sobre o Criador
+## About the Creator
 
-O Tool Telegram foi desenvolvido por AGL SK, um profissional apaixonado por tecnologia e inovação. Com vasta experiência na criação de soluções digitais, AGL SK dedica-se a entregar produtos de alta qualidade que atendam às necessidades dos usuários.
+Tool Telegram was developed by AGL SK, a professional passionate about technology and innovation. With extensive experience in creating digital solutions, AGL SK is dedicated to delivering high-quality products that meet users' needs.
 
-## Documentação
+## Documentation
 
-Encontre toda a documentação necessária para utilizar o Tool Telegram de maneira eficiente. Aqui você terá acesso a tutoriais, FAQs e guias detalhados que irão auxiliá-lo a tirar o máximo proveito de todas as funcionalidades oferecidas.
+Find all the necessary documentation to efficiently use Tool Telegram. Here you will have access to tutorials, FAQs, and detailed guides that will help you make the most out of all the features offered.
 
-[Acesse a Documentação](https://aglsk.github.io/Tool-Telegram-Oficial/documentation)
+[Access the Documentation](https://aglsk.github.io/Tool-Telegram-Oficial/documentation)
 
 ## Usage
 
-Tool Telegram was created to send messages to your group/channel using its bot, ensuring your anonymity.
+Tool Telegram allows you to send messages to your group or channel using its bot, ensuring your anonymity.
 
 ## Authentication
 
-To authenticate, include your ChatID and API Token Bot:
+To authenticate, provide your Chat ID and Bot API Token:
 
-- ChatID: Your Chat ID Here
-- Token: Your Token Bot API Here
+- **Chat ID**: Your Chat ID Here
+- **Token**: Your Bot API Token Here
 
 ## Endpoints
 
 ### POST /Group or Channel Without Topic
 
-#### Item Post
+#### Request Body
 
-To send:
-- Message: Your message
-- Photo Option: A Photo Here (Optional)
+- **Message**: The message you want to send
+- **Photo** (optional): An optional photo to include with the message
 
 #### Response
 
-Message sent successfully!
+- **Success**: "Message sent successfully!"
 
 ### POST /Group or Channel With Topic
 
-#### Item Post
+#### Request Body
 
-To send:
-- Message: Your message
-- Photo Option: A Photo Here (Optional)
-- Topic ID (optional): Topic ID
+- **Message**: The message you want to send
+- **Photo** (optional): An optional photo to include with the message
+- **Topic ID** (optional): The ID of the topic within the group or channel
 
 #### Response
 
-Message sent successfully!
+- **Success**: "Message sent successfully!"
 
----
+## License
 
-### Licença
+This software is distributed under the terms of the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Este software é distribuído sob os termos da [Licença Pública Geral GNU](https://www.gnu.org/licenses/gpl-3.0.html) conforme publicada pela Free Software Foundation, tanto na versão 3 da Licença, ou (a seu critério) qualquer versão posterior.
-
-Consulte a licença para obter os detalhes completos dos direitos e restrições associados ao uso deste software.
+Please refer to the license for full details on the rights and restrictions associated with using this software.
