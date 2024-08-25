@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tool Telegram</string>
+    
     <string name="send_private_message">Send private message (Bot)</string>
     <string name="send_community_message">Send message in community (Bot)</string>
+    
     <string name="chat_id_label">Chat ID</string>
     <string name="token_label">Bot Token</string>
     <string name="message_label">Message</string>
     <string name="send_label">Send</string>
+    <string name="topic_id_label">Topic ID</string>
+    <string name="image_url_label">Image URL</string>
+    
     <string name="dialog_success_title">Success!</string>
     <string name="dialog_success_text">Your message has been sent successfully!</string>
     <string name="dialog_error_title">Error!</string>
