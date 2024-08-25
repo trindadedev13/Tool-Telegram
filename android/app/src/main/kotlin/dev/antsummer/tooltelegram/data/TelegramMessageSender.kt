@@ -1,102 +1,85 @@
-package dev.antsummer.tooltelegram.data
+package dev.antsummer.tooltelegram.network
 
+import android.app.Activity
 import android.content.Context
-
-import dev.antsummer.tooltelegram.network.RequestNetwork
-import dev.antsummer.tooltelegram.network.RequestListener
-
+import okhttp3.*
 import java.io.File
+import java.io.IOException
 
-class TelegramMessageSender(private val context: Context) {
+class RequestNetwork(private val context: Context) {
 
-    fun sendMessage(
-        chatId: String,
-        token: String, 
-        message: String, 
-        callback: Callback
-    ) {
-        val url = "https://api.telegram.org/bot$token/sendMessage"
-        val headers = HashMap<String, String>().apply {
-            put("Content-Type", "application/x-www-form-urlencoded")
-        }
+    private var headers: HashMap<String, String>? = null
+    private var requestListener: RequestListener? = null
 
-        val params = HashMap<String, String>().apply {
-            put("chat_id", chatId)
-            put("text", message)
-        }
-
-        val queryString = params.entries.joinToString("&") { "${it.key}=${it.value}" }
-
-        val requestNetwork = RequestNetwork(context)
-        requestNetwork.headersSet(headers)
-
-        requestNetwork.startRequestNetwork("GET", "$url?$queryString", "TelegramAPI", object : RequestListener { 
-            override fun onResponse(tag: String, response: String, responseHeader: HashMap<String, String>) {
-                callback.onSuccess(response)
-            }
-
-            override fun onErrorResponse(tag: String, response: String) {
-                callback.onError(response)
-            }
-        })
+    fun headersSet(headers: HashMap<String, String>) {
+        this.headers = headers
     }
     
-    fun sendMessage(
-        chatId: String,
-        token: String,
-        message: String,
-        imageType: String,
-        photoFile: File?,
-        photoUrl: String?,
-        topicId: String = "",
-        callback: Callback
+    fun startRequestNetwork(
+        method: String,
+        url: String,
+        tag: String,
+        formData: HashMap<String, Any>,
+        requestListener: RequestListener
     ) {
-        val url = "https://api.telegram.org/bot$token/sendPhoto"
-        val formData = HashMap<String, Any>().apply {
-            put("chat_id", chatId)
-            put("caption", message)
-            when (imageType) {
-                "file" -> {
-                    photoFile?.let {
-                        put("photo", it)
-                    } ?: run {
-                        callback.onError("No file selected.")
-                        return
-                    }
-                }
-                "url" -> {
-                    photoUrl?.let {
-                        put("photo", it)
-                    } ?: run {
-                        callback.onError("No URL provided.")
-                        return
-                    }
-                }
-                else -> {
-                    callback.onError("Invalid image type.")
-                    return
-                }
-            }
-            if (topicId.isNotBlank()) {
-                put("message_thread_id", topicId)
-            }
+        this.requestListener = requestListener
+
+        val client = OkHttpClient()
+
+        val requestBuilder = Request.Builder().url(url)
+        headers?.forEach { (key, value) ->
+            requestBuilder.addHeader(key, value)
         }
 
-        val requestNetwork = RequestNetwork(context)
+        val requestBody = if (method == "POST" && formData.isNotEmpty()) {
+            val multipartBuilder = MultipartBody.Builder().setType(MultipartBody.FORM)
 
-        requestNetwork.startRequestNetwork("POST", url, "TelegramAPI", formData, object : RequestListener {
-            override fun onResponse(tag: String, response: String, responseHeader: HashMap<String, String>) {
-                callback.onSuccess(response)
+            formData.forEach { (key, value) ->
+                when (value) {
+                    is File -> multipartBuilder.addFormDataPart(key, value.name, value.asRequestBody())
+                    is String -> multipartBuilder.addFormDataPart(key, value)
+                    else -> throw IllegalArgumentException("Unsupported value type: ${value::class.java}")
+                }
+            }
+            multipartBuilder.build()
+        } else {
+            null
+        }
+
+        val request = when (method) {
+            "GET" -> requestBuilder.get().build()
+            "POST" -> requestBuilder.post(requestBody!!).build()
+            else -> throw IllegalArgumentException("Unsupported method: $method")
+        }
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                (context as? Activity)?.runOnUiThread {
+                    requestListener.onErrorResponse(tag, e.message ?: "Unknown error")
+                }
             }
 
-            override fun onErrorResponse(tag: String, response: String) {
-                callback.onError(response)
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body?.string() ?: ""
+                    val responseHeaders = response.headers.toMap()
+                    (context as? Activity)?.runOnUiThread {
+                        requestListener.onResponse(tag, responseBody, responseHeaders)
+                    }
+                } else {
+                    (context as? Activity)?.runOnUiThread {
+                        requestListener.onErrorResponse(tag, response.message)
+                    }
+                }
             }
         })
     }
+}
 
-    interface Callback {
-        fun onSuccess(response: String)
-        fun onError(error: String)
+fun Headers.toMap(): HashMap<String, String> {
+    val map = HashMap<String, String>()
+    for (i in 0 until size) {
+        map[name(i)] = value(i)
     }
+    return map
 }
