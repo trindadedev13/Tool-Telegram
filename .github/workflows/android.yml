@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-release-signed
-          path: android/app/build/outputs/apk/release/app-release-signed.zip
+          path: ${{ steps.sign_apk_release.outputs.signedReleaseFile }}
           
   send_release_apk:
     name: Send Release APK
