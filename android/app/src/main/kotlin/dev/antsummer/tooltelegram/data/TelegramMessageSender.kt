@@ -2,15 +2,14 @@ package dev.antsummer.tooltelegram.data
 
 import android.content.Context
 
+import dev.antsummer.tooltelegram.network.RequestNetwork
+import dev.antsummer.tooltelegram.network.RequestListener
+
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 
 import java.io.File
-
-import dev.antsummer.tooltelegram.network.RequestNetwork
-import dev.antsummer.tooltelegram.network.RequestListener
 
 class TelegramMessageSender(private val context: Context) {
 
