@@ -38,6 +38,7 @@ import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageVi
 import dev.antsummer.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUIState
 
 @OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SendPrivateMessageScreen() {
     val viewModel: SendPrivateMessageViewModel = viewModel()
@@ -49,28 +50,15 @@ fun SendPrivateMessageScreen() {
     val defaultModifier = Modifier.fillMaxWidth()
     
     var isShowDialog by remember { mutableStateOf(false) }
-    var dialogTitle by remember { mutableStateOf("") }
-    var dialogText by remember { mutableStateOf("") }
-    var dialogIcon by remember { mutableStateOf(Icons.Filled.CheckCircle) }
-    var dialogIconDescription by remember { mutableStateOf("") }
+    var isSuccess by remember { mutableStateOf(false) }
 
     LaunchedEffect(uiState.isSuccess) {
-        if (uiState.isSuccess != null) {
+        uiState.isSuccess?.let { success ->
+            isSuccess = success
             isShowDialog = true
-            if (uiState.isSuccess) {
-                dialogTitle = getString(R.string.dialog_success_title)
-                dialogText = getString(R.string.dialog_success_text)
-                dialogIcon = Icons.Filled.CheckCircle
-                dialogIconDescription = getString(R.string.dialog_success_title)
-            } else {
-                dialogTitle = getString(R.string.dialog_error_title)
-                dialogText = getString(R.string.dialog_error_text)
-                dialogIcon = Icons.Filled.CheckCircle
-                dialogIconDescription = getString(R.string.dialog_error_title)
-            }
         }
     }
-    
+
     ApplicationScreen(
         modifier = Modifier.padding(start = 10.dp, end = 10.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -132,23 +120,48 @@ fun SendPrivateMessageScreen() {
                             onClick = {
                                 uiState.onClickToSend(chatId, token, message, context)
                             }
-                        ){
-                            Text(text = stringResource(id= R.string.send_label))
+                        ) {
+                            Text(text = stringResource(id = R.string.send_label))
                         }
                     }
                 )
             }
         }
     )
-    
+
     if (isShowDialog) {
-        TDialog(
-            onDismissRequest = { isShowDialog = false },
-            onConfirmation = { isShowDialog = false },
-            dialogTitle = dialogTitle,
-            dialogText = dialogText,
-            icon = dialogIcon,
-            iconDescription = dialogIconDescription
-        )
+        if (isSuccess) {
+            sd { isShowDialog = false }
+        } else {
+            ed { isShowDialog = false }
+        }
     }
+}
+
+@Composable
+fun sd(
+    onDismiss: () -> Unit
+) {
+    TDialog(
+        onDismissRequest = onDismiss,
+        onConfirmation = onDismiss,
+        dialogTitle = stringResource(id = R.string.dialog_success_title),
+        dialogText = stringResource(id = R.string.dialog_success_text),
+        icon = Icons.Filled.CheckCircle,
+        iconDescription = stringResource(id = R.string.dialog_success_title)
+    )
+}
+
+@Composable
+fun ed(
+    onDismiss: () -> Unit
+) {
+    TDialog(
+        onDismissRequest = onDismiss,
+        onConfirmation = onDismiss,
+        dialogTitle = stringResource(id = R.string.dialog_error_title),
+        dialogText = stringResource(id = R.string.dialog_error_text),
+        icon = Icons.Outlined.Settings, 
+        iconDescription = stringResource(id = R.string.dialog_error_title)
+    )
 }
