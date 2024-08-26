@@ -62,10 +62,6 @@ fun SettingsScreen(
             )
         },
         content = {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
                 Title(title = stringResource(id = R.string.appearance_label))
                 PreferenceItem (
                      title = stringResource(id = R.string.use_monet_label),
@@ -84,7 +80,6 @@ fun SettingsScreen(
                          navController.navigate("settings/libraries")
                      }
                 )
-            }
         }
     )
 }
