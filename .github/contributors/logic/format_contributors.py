@@ -15,4 +15,4 @@ def format_contributors(input_file, output_file):
             outfile.write(f'| {name} | {contributions} | {role} |\n')
 
 if __name__ == "__main__":
-    format_contributors('contributors/contributors_github.json', 'contributors/TABLE_CONTRIBUTORS_GITHUB.md')
+    format_contributors('.github/contributors/contributors_github.json', '.github/contributors/TABLE_CONTRIBUTORS_GITHUB.md')

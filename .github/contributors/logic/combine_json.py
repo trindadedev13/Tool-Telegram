@@ -1,11 +1,11 @@
 import json
 
 # load data from the API.
-with open('contributors/contributors_github_temp.json', 'r') as f:
+with open('.github/contributors/contributors_github_temp.json', 'r') as f:
     github_data = json.load(f)
 
 # load existing data
-with open('contributors/contributors_github.json', 'r') as f:
+with open('.github/contributors/contributors_github.json', 'r') as f:
     existing_data = json.load(f)
 
 # convert existing data to a dictionary based on login and id
@@ -23,6 +23,6 @@ for user in github_data:
 combined_data = list(existing_dict.values())
 
 # save the combined json
-with open('contributors/contributors_combined.json', 'w') as f:
+with open('.github/contributors/contributors_combined.json', 'w') as f:
     json.dump(combined_data, f, indent=2)
     
