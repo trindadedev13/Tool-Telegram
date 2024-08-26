@@ -32,37 +32,37 @@ jobs:
       - name: Build Jekyll site from Tool Telegram Website
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./landing-page/
+          source: ./web/landing-page/
           destination: ./_site
 
       - name: Build Jekyll site from website
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./website
-          destination: ./_site/website
+          source: ./web/website
+          destination: ./_site/web/website
 
       - name: Build Jekyll site from website/chat
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./website/chat
+          source: ./web/website/chat
           destination: ./_site/chat
 
       - name: Build Jekyll site from website/topico
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./website/topico
+          source: ./web/website/topico
           destination: ./_site/topico
 
       - name: Build Jekyll site from website/css
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./website/css
+          source: ./web/website/css
           destination: ./_site/css
 
       - name: Build Jekyll site from website/js
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./website/js
+          source: ./web/website/js
           destination: ./_site/js
 
       - name: Upload artifact
