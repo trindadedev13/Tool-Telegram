@@ -37,7 +37,7 @@ jobs:
       - name: Check if there are changes
         id: check_changes
         run: |
-          git fetch origin main
+          git fetch origin dev
           git status
           echo "these are the changes "
 
@@ -47,7 +47,7 @@ jobs:
           git config --global user.email "gampiot.inc@gmail.com"
           git add .
           git commit -m "chore: update github contributors"
-          git branch -M main
-          git push origin main
+          git branch -M dev
+          git push origin dev
         env:
           TOKEN: ${{ secrets.TOKEN }}
