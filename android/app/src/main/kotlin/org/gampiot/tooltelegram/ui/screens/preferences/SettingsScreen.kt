@@ -72,7 +72,9 @@ fun SettingsScreen(
                     description = stringResource(id = R.string.use_monet_deecription),
                     showToggle = true,
                     isChecked = uiState.isUseMonet,
-                    onClick = viewModel.onIsUseMonetChange(!it)
+                    onClick = {
+                        viewModel.onIsUseMonetChange(!it)
+                    }
                 )
             }
         }
