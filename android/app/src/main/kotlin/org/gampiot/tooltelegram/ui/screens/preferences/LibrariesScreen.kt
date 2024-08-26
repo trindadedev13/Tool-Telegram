@@ -86,29 +86,28 @@ fun LibrariesScreen(
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                LazyColumn(modifier = Modifier.fillMaxSize()) {
-                      items(libraries.size) {
-                          val thisLibrary = libraries[it]
-                          val name = thisLibrary.name
-                          var licenses = ""
-                          for (license in thisLibrary.licenses) {
-                               licenses += license.name
+                LibrariesContainer(
+                    modifier = Modifier
+                         .fillMaxSize()
+                         .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal)),
+                    colors = LibraryDefaults.libraryColors(
+                          backgroundColor = MaterialTheme.colorScheme.background,
+                          contentColor = MaterialTheme.colorScheme.onBackground,
+                          badgeBackgroundColor = MaterialTheme.colorScheme.secondaryContainer,
+                          badgeContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                    ),
+                    padding = LibraryDefaults.libraryPadding(
+                          namePadding = PaddingValues(bottom = 4.dp),
+                          badgeContentPadding = PaddingValues(4.dp),
+                    ),
+                    onLibraryClick = { library ->
+                          library.website?.let {
+                               if (it.isNotEmpty()) {
+                                     uriHandler.openUri(it)
+                               }
                           }
-                          val urlToOpen = thisLibrary.website ?: ""
-                          DynamicListItem(listLength = libraries.size - 1, currentValue = it) {
-                               PreferenceItem(
-                                   title = name,
-                                   description = licenses,
-                                   onClick = {
-                                        if (urlToOpen.isNotEmpty()) {
-                                            uriHandler.openUri(urlToOpen)
-                                        }
-                                   },
-                               )
-                          }
-                      }
-                      item { Spacer(modifier = Modifier.padding(26.dp)) }
-                }
+                    },
+                )
             }
         }
     )
