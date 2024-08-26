@@ -41,6 +41,7 @@ import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.Title
 import org.gampiot.tooltelegram.ui.components.preferences.PreferenceItem
+import org.gampiot.tooltelegram.ui.components.item.DynamicListItem
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
 

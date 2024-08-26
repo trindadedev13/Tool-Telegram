@@ -4,6 +4,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 
+import org.gampiot.tooltelegram.ui.components.card.CardBox
+
 @Composable
 fun DynamicListItem(
     listLength: Int,
