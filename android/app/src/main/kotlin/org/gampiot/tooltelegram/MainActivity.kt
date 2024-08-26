@@ -120,7 +120,9 @@ fun MainScreen(
     onSettingsClicked: () -> Unit
 ) {
     ApplicationScreen(
-          modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+          modifier = Modifier
+              .padding(start = 10.dp, end = 10.dp)
+              .fillMaxSize(),
           verticalArrangement = Arrangement.spacedBy(8.dp),
           topBar = {
                TopBar(
