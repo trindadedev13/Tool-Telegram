@@ -85,7 +85,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     
     val aboutLibrariesVersion = "11.2.3"
-    implementation "com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion"
+    implementation("com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion")
     implementation("com.mikepenz:aboutlibraries-compose:$aboutLibrariesVersion")
     implementation("com.mikepenz:aboutlibraries-compose-m3:$aboutLibrariesVersion")       
 }
