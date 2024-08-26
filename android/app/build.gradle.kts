@@ -3,6 +3,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.mikepenz.aboutlibraries.plugin")
 }
 
 android {
@@ -83,6 +84,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     
-    
-    
+    val aboutLibrariesVersion = "11.2.3"
+    implementation "com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion"
+    implementation("com.mikepenz:aboutlibraries-compose:$aboutLibrariesVersion")
+    implementation("com.mikepenz:aboutlibraries-compose-m3:$aboutLibrariesVersion")       
 }
