@@ -51,7 +51,8 @@ To authenticate, provide your Chat ID and Bot API Token:
 ## About the Creator
 
 The Tool-Telegram website was created by [AGL SK](https://github.com/aglsk/). 
-The Tool-Telegram Android App was created by [Aquiles Trindade](https://github.com/antsummer) *this is his current account as of now (08/25/24).
+<br>
+The Tool-Telegram Android App was created by [Aquiles Trindade](https://github.com/aquilesTrindade13) *this is his current account as of now (08/25/24).
 
 
 ## License
