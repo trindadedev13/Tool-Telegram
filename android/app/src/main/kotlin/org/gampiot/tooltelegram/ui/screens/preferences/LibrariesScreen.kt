@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.Settings
@@ -49,6 +50,7 @@ fun LibrariesScreen(
     val uiState by viewModel.uiState.collectAsState()
     
     val context = LocalContext.current
+    val uriHandler = LocalUriHandler.current
     
     val defaultModifier = Modifier.fillMaxWidth()
     
