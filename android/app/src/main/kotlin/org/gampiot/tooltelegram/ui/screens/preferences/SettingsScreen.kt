@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.outlined.Settings
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -36,7 +37,9 @@ import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(
+    navController: NavController
+) {
     val viewModel: SettingsViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
     
@@ -50,7 +53,10 @@ fun SettingsScreen() {
         topBar = {
             TopBar(
                 barTitle = stringResource(id = R.string.settings_label),
-                scrollBehavior = it
+                scrollBehavior = it,
+                onClickBackButton = {
+                    navController.popBackStack()
+                }
             )
         },
         content = {

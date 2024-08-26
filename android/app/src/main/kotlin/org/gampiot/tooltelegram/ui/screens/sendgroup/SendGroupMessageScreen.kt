@@ -1,4 +1,4 @@
-package org.gampiot.tooltelegram.ui.screens.sendprivate
+package org.gampiot.tooltelegram.ui.screens.sendgroup
 
 import android.os.Bundle
 
@@ -35,15 +35,15 @@ import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.cards.SimpleCard
 import org.gampiot.tooltelegram.ui.components.dialog.TDialog
-import org.gampiot.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageViewModel
-import org.gampiot.tooltelegram.ui.viewmodels.sendprivate.SendPrivateMessageUIState
+import org.gampiot.tooltelegram.ui.viewmodels.sendgroup.SendGroupMessageViewModel
+import org.gampiot.tooltelegram.ui.viewmodels.sendgroup.SendGroupMessageUIState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SendPrivateMessageScreen(
+fun SendGroupMessageScreen(
     navController: NavController
 ) {
-    val viewModel: SendPrivateMessageViewModel = viewModel()
+    val viewModel: SendGroupMessageViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
     val chatId = uiState.chatId
     val token = uiState.token
@@ -65,8 +65,11 @@ fun SendPrivateMessageScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         topBar = {
             TopBar(
-                barTitle = stringResource(id = R.string.send_private_message),
-                scrollBehavior = it
+                barTitle = stringResource(id = R.string.send_group_message),
+                scrollBehavior = it,
+                onClickBackButton = {
+                    navController.popBackStack()
+                }
             )
         },
         content = {
@@ -76,7 +79,7 @@ fun SendPrivateMessageScreen(
             ) {
                 SimpleCard(
                     modifier = Modifier,
-                    stringResource(id = R.string.send_private_message),
+                    stringResource(id = R.string.send_group_message),
                     content = {
                         OutlinedTextField(
                             modifier = defaultModifier,

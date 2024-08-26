@@ -1,4 +1,4 @@
-package org.gampiot.tooltelegram.ui.viewmodels.sendprivate
+package org.gampiot.tooltelegram.ui.viewmodels.sendgroup
 
 import android.content.Context
 
@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.update
 
 import org.gampiot.tooltelegram.data.TelegramMessageSender
 
-class SendPrivateMessageViewModel : ViewModel() {
-    private val _uiState = MutableStateFlow(SendPrivateMessageUIState())
+class SendGroupMessageViewModel : ViewModel() {
+    private val _uiState = MutableStateFlow(SendGroupMessageUIState())
     val uiState = _uiState.asStateFlow()
 
     fun onChatIdChange(chatId: String) {

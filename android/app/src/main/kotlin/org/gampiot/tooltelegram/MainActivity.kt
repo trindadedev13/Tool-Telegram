@@ -31,7 +31,7 @@ import org.gampiot.tooltelegram.ui.theme.AntSummerTheme
 import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.cards.SimpleCard
-import org.gampiot.tooltelegram.ui.screens.sendprivate.SendPrivateMessageScreen
+import org.gampiot.tooltelegram.ui.screens.sendgroup.SendGroupMessageScreen
 import org.gampiot.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
 
 class MainActivity : ComponentActivity() {
@@ -85,13 +85,13 @@ class MainActivity : ComponentActivity() {
                                 onSendCommunityMessageClicked = {
                                        navController.navigate("sendChannel")
                                 },
-                                onSendPrivateMessageClicked = {
-                                      navController.navigate("sendPrivate")
+                                onSendGroupMessageClicked = {
+                                      navController.navigate("sendGroup")
                                 }
                            )
                       }
-                      composable("sendPrivate") {
-                           SendPrivateMessageScreen(navController)
+                      composable("sendGroup") {
+                           SendGroupMessageScreen(navController)
                       }
                       composable("sendChannel") {
                            SendCommunityMessageScreen(navController)
@@ -106,7 +106,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(
     onSendCommunityMessageClicked: () -> Unit,
-    onSendPrivateMessageClicked: () -> Unit
+    onSendGroupMessageClicked: () -> Unit
 ) {
     ApplicationScreen(
           modifier = Modifier.padding(start = 10.dp, end = 10.dp),
@@ -129,10 +129,10 @@ fun MainScreen(
                              Column {
                                   Spacer(modifier = Modifier.weight(1F))
                                   Button(
-                                       onClick = onSendPrivateMessageClicked
+                                       onClick = onSendGroupMessageClicked
                                   ) {
                                        Text(
-                                           text = stringResource(id = R.string.send_private_message)
+                                           text = stringResource(id = R.string.send_group_message)
                                        )
                                   }
                                   Spacer(modifier = Modifier.weight(1F))

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Tool Telegram</string>
     
-    <string name="send_private_message">Send private message (Bot)</string>
+    <string name="send_group_message">Send group message (Bot)</string>
     <string name="send_community_message">Send message in community (Bot)</string>
     
     <string name="chat_id_label">Chat ID</string>
