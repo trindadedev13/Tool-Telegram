@@ -1,10 +1,12 @@
 package org.gampiot.tooltelegram.ui.components.item
 
+// from VegaBobo/DSU-Sideloader
+
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 
-import org.gampiot.tooltelegram.ui.components.card.CardBox
+import org.gampiot.tooltelegram.ui.components.cards.CardBox
 
 @Composable
 fun DynamicListItem(
