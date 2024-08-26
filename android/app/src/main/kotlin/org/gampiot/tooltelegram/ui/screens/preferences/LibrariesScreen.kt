@@ -62,8 +62,11 @@ fun LibrariesScreen(
     val defaultModifier = Modifier.fillMaxWidth()
     
     ApplicationScreen(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        enableDefaultScrollBehavior = false,
+        columnContent = false,
+        modifier = Modifier
+            .nestedScroll(scrollBehavior.nestedScrollConnection)
+            .padding(start = 10.dp, end = 10.dp),
         topBar = {
             TopBar(
                 barTitle = stringResource(id = R.string.settings_label),
