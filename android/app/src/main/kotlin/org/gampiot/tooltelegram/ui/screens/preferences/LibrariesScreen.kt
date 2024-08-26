@@ -56,9 +56,12 @@ fun LibrariesScreen(
     
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
+    
     val libs = remember { mutableStateOf<Libs?>(null) }
     libs.value = Libs.Builder().withContext(context).build()
     val libraries = libs.value!!.libraries
+    
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(appBarState)
     
     val defaultModifier = Modifier.fillMaxWidth()
     
