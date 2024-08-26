@@ -1,4 +1,4 @@
-package org.gampiot.compose.experiments.ui.components.preferences
+package org.gampiot.tooltelegram.ui.components.preferences
 
 // from VegaBobo/DSU-Sideloader
 
