@@ -32,6 +32,8 @@ import androidx.compose.ui.res.painterResource
 import org.gampiot.tooltelegram.R
 import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
+import org.gampiot.tooltelegram.ui.components.Title
+import org.gampiot.tooltelegram.ui.components.preferences.PreferenceItem
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
 
@@ -64,7 +66,14 @@ fun SettingsScreen(
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                
+                Title(title = stringResource(id = R.string.appearance_label))
+                PreferenceItem (
+                    title = stringResource(id = R.string.use_monet_label),
+                    description = stringResource(id = R.string.use_monet_deecription),
+                    showToggle = true,
+                    isChecked = uiState.isUseMonet,
+                    onClick = viewModel.onIsUseMonetChange(!it)
+                )
             }
         }
     )

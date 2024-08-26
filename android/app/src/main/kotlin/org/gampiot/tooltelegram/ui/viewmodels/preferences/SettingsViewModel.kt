@@ -8,4 +8,10 @@ import kotlinx.coroutines.flow.asStateFlow
 class SettingsViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(SettingsUIState())
     val uiState = _uiState.asStateFlow()
+    
+    fun onIsUseMonetChange(isUseMonet: Boolean) {
+        _uiState.update {
+             it.copy(isUseMonet = isUseMonet)
+        }
+    }
 }
