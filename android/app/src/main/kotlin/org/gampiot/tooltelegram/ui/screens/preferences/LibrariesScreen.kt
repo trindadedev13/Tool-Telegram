@@ -30,6 +30,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 
+import com.mikepenz.aboutlibraries.Libs
+import com.mikepenz.aboutlibraries.util.withContext
 import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
 import com.mikepenz.aboutlibraries.ui.compose.LibraryDefaults
 
@@ -51,6 +53,9 @@ fun LibrariesScreen(
     
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
+    val libs = remember { mutableStateOf<Libs?>(null) }
+    libs.value = Libs.Builder().withContext(context).build()
+    val libraries = libs.value!!.libraries
     
     val defaultModifier = Modifier.fillMaxWidth()
     
@@ -71,28 +76,32 @@ fun LibrariesScreen(
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                LibrariesContainer(
-                    modifier = Modifier
-                         .fillMaxSize()
-                         .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal)),
-                    colors = LibraryDefaults.libraryColors(
-                         backgroundColor = MaterialTheme.colorScheme.background,
-                         contentColor = MaterialTheme.colorScheme.onBackground,
-                         badgeBackgroundColor = MaterialTheme.colorScheme.secondaryContainer,
-                         badgeContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                    ),
-                    padding = LibraryDefaults.libraryPadding(
-                         namePadding = PaddingValues(bottom = 4.dp),
-                         badgeContentPadding = PaddingValues(4.dp),
-                    ),
-                    onLibraryClick = { library ->
-                         library.website?.let {
-                              if (it.isNotEmpty()) {
-                                  uriHandler.openUri(it)
-                              }
-                        }
-                    },
-                )
+                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    items(libraries.size) {
+                         LibrariesContainer(
+                              modifier = Modifier
+                                  .fillMaxSize()
+                                  .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal)),
+                              colors = LibraryDefaults.libraryColors(
+                                   backgroundColor = MaterialTheme.colorScheme.background,
+                                   contentColor = MaterialTheme.colorScheme.onBackground,
+                                   badgeBackgroundColor = MaterialTheme.colorScheme.secondaryContainer,
+                                   badgeContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                              ),
+                              padding = LibraryDefaults.libraryPadding(
+                                   namePadding = PaddingValues(bottom = 4.dp),
+                                   badgeContentPadding = PaddingValues(4.dp),
+                              ),
+                              onLibraryClick = { library ->
+                                   library.website?.let {
+                                       if (it.isNotEmpty()) {
+                                            uriHandler.openUri(it)
+                                       }
+                                   }
+                              },
+                         )
+                    }
+                }
             }
         }
     )
