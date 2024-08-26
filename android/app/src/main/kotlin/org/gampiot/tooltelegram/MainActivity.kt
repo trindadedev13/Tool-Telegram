@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AntSummerTheme(highContrastDarkTheme = true) {
+            AntSummerTheme() {
                  val navController = rememberNavController()
                  NavHost(
                      navController = navController,
