@@ -61,6 +61,7 @@ fun LibrariesScreen(
     libs.value = Libs.Builder().withContext(context).build()
     val libraries = libs.value!!.libraries
     
+    val appBarState = rememberTopAppBarState()
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(appBarState)
     
     val defaultModifier = Modifier.fillMaxWidth()
@@ -74,7 +75,7 @@ fun LibrariesScreen(
         topBar = {
             TopBar(
                 barTitle = stringResource(id = R.string.settings_label),
-                scrollBehavior = it,
+                scrollBehavior = scrollBehavior,
                 onClickBackButton = {
                     navController.popBackStack()
                 }
