@@ -39,7 +39,7 @@
     "received_events_url": "https://api.github.com/users/antsummer/received_events",
     "type": "User",
     "site_admin": false,
-    "contributions": 42
+    "contributions": 86
   },
   {
     "login": "gampiot-bot",
@@ -60,6 +60,6 @@
     "received_events_url": "https://api.github.com/users/gampiot-bot/received_events",
     "type": "User",
     "site_admin": false,
-    "contributions": 2
+    "contributions": 3
   }
 ]
