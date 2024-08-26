@@ -33,6 +33,7 @@ import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.cards.SimpleCard
 import org.gampiot.tooltelegram.ui.screens.sendgroup.SendGroupMessageScreen
 import org.gampiot.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
+import org.gampiot.tooltelegram.ui.screens.preferences.SettingsScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -87,14 +88,23 @@ class MainActivity : ComponentActivity() {
                                 },
                                 onSendGroupMessageClicked = {
                                       navController.navigate("sendGroup")
+                                },
+                                onSettingsClicked = {
+                                      navController.navigate("settings")
                                 }
                            )
                       }
+                      
                       composable("sendGroup") {
                            SendGroupMessageScreen(navController)
                       }
+                      
                       composable("sendChannel") {
                            SendCommunityMessageScreen(navController)
+                      }
+                      
+                      composable("settings") {
+                           SettingsScreen(navController)
                       }
                  }
             }
@@ -106,7 +116,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(
     onSendCommunityMessageClicked: () -> Unit,
-    onSendGroupMessageClicked: () -> Unit
+    onSendGroupMessageClicked: () -> Unit,
+    onSettingsClicked: () -> Unit
 ) {
     ApplicationScreen(
           modifier = Modifier.padding(start = 10.dp, end = 10.dp),
@@ -114,7 +125,9 @@ fun MainScreen(
           topBar = {
                TopBar(
                     barTitle = stringResource(id = R.string.app_name),
-                    scrollBehavior = it
+                    scrollBehavior = it,
+                    icon = Icons.Outlined.Settings,
+                    onClickIcon = onSettingsClicked
                )
           },
           content = { 
