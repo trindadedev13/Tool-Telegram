@@ -68,13 +68,21 @@ fun SettingsScreen(
             ) {
                 Title(title = stringResource(id = R.string.appearance_label))
                 PreferenceItem (
-                    title = stringResource(id = R.string.use_monet_label),
-                    description = stringResource(id = R.string.use_monet_deecription),
-                    showToggle = true,
-                    isChecked = uiState.isUseMonet,
-                    onClick = {
-                        viewModel.onIsUseMonetChange(!it)
-                    }
+                     title = stringResource(id = R.string.use_monet_label),
+                     description = stringResource(id = R.string.use_monet_description),
+                     showToggle = true,
+                     isChecked = uiState.isUseMonet,
+                     onClick = {
+                         viewModel.onIsUseMonetChange(!it)
+                     }
+                )
+                Title(title = stringResource(id = R.string.about_label))
+                PreferenceItem (
+                     title = stringResource(id = R.string.libraries_label),
+                     description = stringResource(id = R.string.libraries_description),
+                     onClick = {
+                         navController.navigate("settings/libraries")
+                     }
                 )
             }
         }

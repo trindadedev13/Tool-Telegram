@@ -14,8 +14,10 @@
     <string name="settings_label">Settings</string>
     <string name="appearance_label">Appearance</string>
     <string name="use_monet_label">Use Dynamic Colors</string>
+    <string name="about_label">About</string>
     
-    <string name="use_monet_deecription">Use Dynamic Colors in app if available.</string>
+    <string name="use_monet_description">Use Dynamic Colors in app if available.</string>
+    <string name="about_description">About</string>
     
     <string name="dialog_success_title">Success!</string>
     <string name="dialog_success_text">Your message has been sent successfully!</string>

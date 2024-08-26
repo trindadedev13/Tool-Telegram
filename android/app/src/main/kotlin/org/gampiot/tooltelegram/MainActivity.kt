@@ -34,6 +34,7 @@ import org.gampiot.tooltelegram.ui.components.cards.SimpleCard
 import org.gampiot.tooltelegram.ui.screens.sendgroup.SendGroupMessageScreen
 import org.gampiot.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
 import org.gampiot.tooltelegram.ui.screens.preferences.SettingsScreen
+import org.gampiot.tooltelegram.ui.screens.preferences.LibrariesScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -105,6 +106,10 @@ class MainActivity : ComponentActivity() {
                       
                       composable("settings") {
                            SettingsScreen(navController)
+                      }
+                      
+                      composable("settings/libraries") {
+                           LibrariesScreen(navController)
                       }
                  }
             }
