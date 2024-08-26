@@ -50,7 +50,7 @@ fun SettingsScreen(
     val defaultModifier = Modifier.fillMaxWidth()
     
     ApplicationScreen(
-        modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+        modifier = Modifier,
         verticalArrangement = Arrangement.spacedBy(8.dp),
         topBar = {
             TopBar(
