@@ -76,7 +76,7 @@ fun SettingsScreen(
                      title = stringResource(id = R.string.use_high_contrast_label),
                      description = stringResource(id = R.string.use_high_contrast_description),
                      showToggle = true,
-                     isChecked = uiState.isHighContrast,
+                     isChecked = uiState.isUseHighContrast,
                      onClick = {
                          viewModel.onIsUseHighContrastChange(!it)
                      }
