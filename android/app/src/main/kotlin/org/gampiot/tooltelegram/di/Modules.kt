@@ -22,7 +22,7 @@ val appModule = module {
 val appPreferencesModule = module { 
     single {
         PreferenceDataStoreFactory.create {
-             androidContext().preferenceDataStoreFile(APP_PREFERENCES)
+             androidContext().preferencesDataStoreFile(APP_PREFERENCES)
         }
     }
 }

@@ -2,7 +2,7 @@ package org.gampiot.tooltelegram.repositories
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.prefetences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.booleanPreferencesKey
 
 import kotlinx.coroutines.flow.map
 
