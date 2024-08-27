@@ -74,7 +74,7 @@ fun LibrariesScreen(
             .padding(start = 10.dp, end = 10.dp),
         topBar = {
             TopBar(
-                barTitle = stringResource(id = R.string.settings_label),
+                barTitle = stringResource(id = R.string.libraries_label),
                 scrollBehavior = scrollBehavior,
                 onClickBackButton = {
                     navController.popBackStack()
