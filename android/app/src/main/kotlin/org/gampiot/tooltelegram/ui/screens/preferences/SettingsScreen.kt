@@ -29,6 +29,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 
+import org.koin.androidx.compose.koinViewModel
+
 import org.gampiot.tooltelegram.R
 import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
@@ -36,14 +38,16 @@ import org.gampiot.tooltelegram.ui.components.Title
 import org.gampiot.tooltelegram.ui.components.preferences.PreferenceItem
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
+import org.gampiot.tooltelegram.ui.viewmodels.preferences.d.AppPreferencesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     navController: NavController
 ) {
-    val viewModel: SettingsViewModel = viewModel()
-    val uiState by viewModel.uiState.collectAsState()
+    val appPrefsViewModel = koinViewModel<AppPreferencesViewModel>()
+    val isUseMonet by appPrefsViewModel.isUseMonet.collectAsState(initial = true)
+    val isUseHighContrast by appPrefsViewModel.isUseHighContrast.collectAsState(initial = false)
     
     val context = LocalContext.current
     
@@ -67,18 +71,18 @@ fun SettingsScreen(
                      title = stringResource(id = R.string.use_monet_label),
                      description = stringResource(id = R.string.use_monet_description),
                      showToggle = true,
-                     isChecked = uiState.isUseMonet,
+                     isChecked = isUseMonet,
                      onClick = {
-                         viewModel.onIsUseMonetChange(!it)
+                          appPrefsViewModel.enableMonet(!it)
                      }
                 )
                 PreferenceItem (
                      title = stringResource(id = R.string.use_high_contrast_label),
                      description = stringResource(id = R.string.use_high_contrast_description),
                      showToggle = true,
-                     isChecked = uiState.isUseHighContrast,
+                     isChecked = isUseHighContrast,
                      onClick = {
-                         viewModel.onIsUseHighContrastChange(!it)
+                          appPrefsViewModel.enableHighContrast(!it)
                      }
                 )
                 Title(title = stringResource(id = R.string.about_label))
