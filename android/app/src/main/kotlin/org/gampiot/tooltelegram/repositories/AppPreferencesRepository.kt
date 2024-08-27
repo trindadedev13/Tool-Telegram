@@ -17,7 +17,6 @@ class AppPreferencesRepository(
               it[isUseMonetPreference] ?: true
           }
      val isUseHighContrast = dataStore.data
-          dataStore.data
           .map {
              it[isUseHighContrastPreference] ?: false
           }
