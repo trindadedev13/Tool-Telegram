@@ -35,6 +35,7 @@ import org.gampiot.tooltelegram.ui.screens.sendgroup.SendGroupMessageScreen
 import org.gampiot.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
 import org.gampiot.tooltelegram.ui.screens.preferences.SettingsScreen
 import org.gampiot.tooltelegram.ui.screens.preferences.LibrariesScreen
+import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
 
 class MainActivity : ComponentActivity() {
 
@@ -47,8 +48,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val settingsViewModel: SettingsViewModel = viewModel()
+        val uiState by viewModel.uiState.collectAsState()
+        
         setContent {
-            AntSummerTheme() {
+            AntSummerTheme(highContrastDarkTheme = uiState.isUseHighContrast) {
                  val navController = rememberNavController()
                  NavHost(
                      navController = navController,
@@ -105,7 +109,7 @@ class MainActivity : ComponentActivity() {
                       }
                       
                       composable("settings") {
-                           SettingsScreen(navController)
+                           SettingsScreen(navController, settingsViewModel)
                       }
                       
                       composable("settings/libraries") {

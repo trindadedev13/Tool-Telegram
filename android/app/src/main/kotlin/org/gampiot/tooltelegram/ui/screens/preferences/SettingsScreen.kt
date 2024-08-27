@@ -34,17 +34,16 @@ import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.Title
 import org.gampiot.tooltelegram.ui.components.preferences.PreferenceItem
-import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
+import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: SettingsViewModel,
+    uiState: SettingsUIState
 ) {
-    val viewModel: SettingsViewModel = viewModel()
-    val uiState by viewModel.uiState.collectAsState()
-    
     val context = LocalContext.current
     
     val defaultModifier = Modifier.fillMaxWidth()
