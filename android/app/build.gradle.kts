@@ -2,8 +2,10 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
     id("org.jetbrains.kotlin.plugin.compose")
     id("com.mikepenz.aboutlibraries.plugin")
+    //id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -65,6 +67,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 dependencies {
 
     val aboutLibrariesVersion = "11.2.3"
+    val koinVersion = "3.4.0"
     
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
@@ -74,6 +77,11 @@ dependencies {
      
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion")
+    
+    //implementation("com.google.dagger:hilt-android:2.44")
+    //kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("io.insert-koin:koin-android:$koinVersion")
+    implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
     
     //compose
     implementation(platform("androidx.compose:compose-bom:2024.08.00"))
@@ -90,4 +98,8 @@ dependencies {
     implementation("io.github.fornewid:material-motion-compose-core:2.0.1")
     implementation("com.mikepenz:aboutlibraries-compose:$aboutLibrariesVersion")
     implementation("com.mikepenz:aboutlibraries-compose-m3:$aboutLibrariesVersion")
+}
+
+kapt {
+  correctErrorTypes = true
 }
