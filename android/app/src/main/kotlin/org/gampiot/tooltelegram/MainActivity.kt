@@ -26,6 +26,8 @@ import androidx.navigation.compose.rememberNavController
 import soup.compose.material.motion.animation.materialSharedAxisXIn
 import soup.compose.material.motion.animation.materialSharedAxisXOut
 
+import org.koin.androidx.compose.koinViewModel
+
 import org.gampiot.tooltelegram.R
 import org.gampiot.tooltelegram.ui.theme.AntSummerTheme
 import org.gampiot.tooltelegram.ui.components.ApplicationScreen
@@ -35,6 +37,7 @@ import org.gampiot.tooltelegram.ui.screens.sendgroup.SendGroupMessageScreen
 import org.gampiot.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
 import org.gampiot.tooltelegram.ui.screens.preferences.SettingsScreen
 import org.gampiot.tooltelegram.ui.screens.preferences.LibrariesScreen
+import org.gampiot.tooltelegram.ui.viewmodels.preferences.d.AppPreferencesViewModel
 
 class MainActivity : ComponentActivity() {
 
@@ -48,7 +51,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AntSummerTheme() {
+            val appPrefsViewModel = koinViewModel<AppPreferencesViewModel>()
+            val isUseMonet by appPrefsViewModel.isUseMonet.collectAsState(initial = true)
+            val isUseHighContrast by appPrefsViewModel.isUseHighContrast.collectAsState(initial = false)
+            AntSummerTheme(
+               highContrastDarkTheme = isUseHighContrast,
+               dynamicColor = isUseMonet
+            ) {
                  val navController = rememberNavController()
                  NavHost(
                      navController = navController,
