@@ -1,24 +1,24 @@
 [
   {
-    "login": "aquilesTrindade13",
+    "login": "trindadeDev13",
     "id": 171992413,
     "node_id": "U_kgDOCkBlXQ",
     "avatar_url": "https://avatars.githubusercontent.com/u/171992413?v=4",
     "gravatar_id": "",
-    "url": "https://api.github.com/users/aquilesTrindade13",
-    "html_url": "https://github.com/aquilesTrindade13",
-    "followers_url": "https://api.github.com/users/aquilesTrindade13/followers",
-    "following_url": "https://api.github.com/users/aquilesTrindade13/following{/other_user}",
-    "gists_url": "https://api.github.com/users/aquilesTrindade13/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/aquilesTrindade13/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/aquilesTrindade13/subscriptions",
-    "organizations_url": "https://api.github.com/users/aquilesTrindade13/orgs",
-    "repos_url": "https://api.github.com/users/aquilesTrindade13/repos",
-    "events_url": "https://api.github.com/users/aquilesTrindade13/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/aquilesTrindade13/received_events",
+    "url": "https://api.github.com/users/trindadeDev13",
+    "html_url": "https://github.com/trindadeDev13",
+    "followers_url": "https://api.github.com/users/trindadeDev13/followers",
+    "following_url": "https://api.github.com/users/trindadeDev13/following{/other_user}",
+    "gists_url": "https://api.github.com/users/trindadeDev13/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/trindadeDev13/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/trindadeDev13/subscriptions",
+    "organizations_url": "https://api.github.com/users/trindadeDev13/orgs",
+    "repos_url": "https://api.github.com/users/trindadeDev13/repos",
+    "events_url": "https://api.github.com/users/trindadeDev13/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/trindadeDev13/received_events",
     "type": "User",
     "site_admin": false,
-    "contributions": 124
+    "contributions": 131
   },
   {
     "login": "aglsk",
@@ -60,6 +60,27 @@
     "received_events_url": "https://api.github.com/users/gampiot-bot/received_events",
     "type": "User",
     "site_admin": false,
-    "contributions": 6
+    "contributions": 7
+  },
+  {
+    "login": "renovate[bot]",
+    "id": 29139614,
+    "node_id": "MDM6Qm90MjkxMzk2MTQ=",
+    "avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/renovate%5Bbot%5D",
+    "html_url": "https://github.com/apps/renovate",
+    "followers_url": "https://api.github.com/users/renovate%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/renovate%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/renovate%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/renovate%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/renovate%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/renovate%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/renovate%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/renovate%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/renovate%5Bbot%5D/received_events",
+    "type": "Bot",
+    "site_admin": false,
+    "contributions": 4
   }
 ]
