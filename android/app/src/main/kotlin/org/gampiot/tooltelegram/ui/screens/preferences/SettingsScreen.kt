@@ -36,8 +36,6 @@ import org.gampiot.tooltelegram.ui.components.ApplicationScreen
 import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.Title
 import org.gampiot.tooltelegram.ui.components.preferences.PreferenceItem
-import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
-import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
 import org.gampiot.tooltelegram.ui.viewmodels.preferences.d.AppPreferencesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
