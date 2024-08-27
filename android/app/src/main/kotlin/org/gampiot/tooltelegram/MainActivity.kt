@@ -133,6 +133,7 @@ fun MainScreen(
     onSendGroupMessageClicked: () -> Unit,
     onSettingsClicked: () -> Unit
 ) {
+    val btnModifier = Modifier.fillMaxWidth
     ApplicationScreen(
           modifier = Modifier
               .padding(start = 10.dp, end = 10.dp)
@@ -158,6 +159,7 @@ fun MainScreen(
                              Column {
                                   Spacer(modifier = Modifier.weight(1F))
                                   Button(
+                                       modifier = btnModifier,
                                        onClick = onSendGroupMessageClicked
                                   ) {
                                        Text(
@@ -166,6 +168,7 @@ fun MainScreen(
                                   }
                                   Spacer(modifier = Modifier.weight(1F))
                                   Button(
+                                       modifier = btnModifier,
                                        onClick = onSendCommunityMessageClicked
                                   ) {
                                        Text(
