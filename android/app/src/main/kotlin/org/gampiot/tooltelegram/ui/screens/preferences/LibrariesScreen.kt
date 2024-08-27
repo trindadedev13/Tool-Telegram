@@ -43,17 +43,12 @@ import org.gampiot.tooltelegram.ui.components.appbars.TopBar
 import org.gampiot.tooltelegram.ui.components.Title
 import org.gampiot.tooltelegram.ui.components.preferences.PreferenceItem
 import org.gampiot.tooltelegram.ui.components.item.DynamicListItem
-import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsViewModel
-import org.gampiot.tooltelegram.ui.viewmodels.preferences.SettingsUIState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LibrariesScreen(
     navController: NavController
 ) {
-    val viewModel: SettingsViewModel = viewModel()
-    val uiState by viewModel.uiState.collectAsState()
-    
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
     
