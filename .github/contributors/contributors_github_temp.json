@@ -18,7 +18,7 @@
     "received_events_url": "https://api.github.com/users/aquilesTrindade13/received_events",
     "type": "User",
     "site_admin": false,
-    "contributions": 90
+    "contributions": 124
   },
   {
     "login": "aglsk",
@@ -60,6 +60,6 @@
     "received_events_url": "https://api.github.com/users/gampiot-bot/received_events",
     "type": "User",
     "site_admin": false,
-    "contributions": 5
+    "contributions": 6
   }
 ]
