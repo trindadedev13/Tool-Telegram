@@ -16,8 +16,10 @@
     <string name="use_monet_label">Use Dynamic Colors</string>
     <string name="about_label">About</string>
     <string name="libraries_label">Libraries</string>
+    <string name="use_high_contrast_label">Use High Contrast Theme</string>
     
     <string name="use_monet_description">Use Dynamic Colors in app if available.</string>
+    <string name="use_high_contrast_description">Use pure black in dark mode.</string>
     <string name="libraries_description">All the libraries we use in the application.</string>
     
     <string name="dialog_success_title">Success!</string>

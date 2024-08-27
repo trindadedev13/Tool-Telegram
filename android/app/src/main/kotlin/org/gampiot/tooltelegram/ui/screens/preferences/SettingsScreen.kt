@@ -72,6 +72,15 @@ fun SettingsScreen(
                          viewModel.onIsUseMonetChange(!it)
                      }
                 )
+                PreferenceItem (
+                     title = stringResource(id = R.string.use_high_contrast_label),
+                     description = stringResource(id = R.string.use_high_contrast_description),
+                     showToggle = true,
+                     isChecked = uiState.isHighContrast,
+                     onClick = {
+                         viewModel.onIsUseHighContrastChange(!it)
+                     }
+                )
                 Title(title = stringResource(id = R.string.about_label))
                 PreferenceItem (
                      title = stringResource(id = R.string.libraries_label),

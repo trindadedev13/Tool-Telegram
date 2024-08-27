@@ -64,18 +64,18 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 
 dependencies {
 
+    val aboutLibrariesVersion = "11.2.3"
+    
     implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.13.0-alpha05")
-    implementation("androidx.activity:activity-compose:1.9.1")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.navigation:navigation-compose:2.7.7")
-    implementation("io.github.fornewid:material-motion-compose-core:2.0.1")
-    
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("com.google.android.material:material:1.13.0-alpha05")
+     
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion")
     
+    //compose
     implementation(platform("androidx.compose:compose-bom:2024.08.00"))
     debugImplementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.material3:material3")
@@ -83,9 +83,11 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    
-    val aboutLibrariesVersion = "11.2.3"
-    implementation("com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion")
+    implementation("androidx.activity:activity-compose:1.9.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("io.github.fornewid:material-motion-compose-core:2.0.1")
     implementation("com.mikepenz:aboutlibraries-compose:$aboutLibrariesVersion")
-    implementation("com.mikepenz:aboutlibraries-compose-m3:$aboutLibrariesVersion")       
+    implementation("com.mikepenz:aboutlibraries-compose-m3:$aboutLibrariesVersion")
 }

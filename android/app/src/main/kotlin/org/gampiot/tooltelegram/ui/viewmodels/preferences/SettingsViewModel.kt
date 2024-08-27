@@ -15,4 +15,10 @@ class SettingsViewModel : ViewModel() {
              it.copy(isUseMonet = isUseMonet)
         }
     }
+    
+    fun onIsUseHighContrastChange(isUseHighContrast: Boolean) {
+        _uiState.update {
+             it.copy(isUseHighContrast = isUseHighContrast)
+        }
+    }
 }
