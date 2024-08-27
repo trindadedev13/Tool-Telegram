@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val settingsViewModel: SettingsViewModel = viewModel()
-            val uiState by viewModel.uiState.collectAsState()
+            val uiState by settingsViewModel.uiState.collectAsState()
             AntSummerTheme(highContrastDarkTheme = uiState.isUseHighContrast) {
                  val navController = rememberNavController()
                  NavHost(
