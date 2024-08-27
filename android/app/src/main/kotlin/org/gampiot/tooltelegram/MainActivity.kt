@@ -48,10 +48,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val settingsViewModel: SettingsViewModel = viewModel()
-        val uiState by viewModel.uiState.collectAsState()
-        
         setContent {
+            val settingsViewModel: SettingsViewModel = viewModel()
+            val uiState by viewModel.uiState.collectAsState()
             AntSummerTheme(highContrastDarkTheme = uiState.isUseHighContrast) {
                  val navController = rememberNavController()
                  NavHost(
