@@ -70,7 +70,7 @@ fun LibrariesScreen(
         enableDefaultScrollBehavior = false,
         columnContent = false,
         modifier = Modifier
-            .nestedScroll(scrollBehavior.nestedScrollConnection)
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopBar(
                 barTitle = stringResource(id = R.string.libraries_label),
