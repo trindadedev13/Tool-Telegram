@@ -109,7 +109,7 @@ class MainActivity : ComponentActivity() {
                       }
                       
                       composable("settings") {
-                           SettingsScreen(navController, settingsViewModel)
+                           SettingsScreen(navController, settingsViewModel, uiState)
                       }
                       
                       composable("settings/libraries") {
