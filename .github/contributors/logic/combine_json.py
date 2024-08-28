@@ -1,17 +1,23 @@
 import json
 
-# load data from the API.
+# Load data from the API
 with open('.github/contributors/contributors_github_temp.json', 'r') as f:
     github_data = json.load(f)
 
-# load existing data
+# Load existing data
 with open('.github/contributors/contributors_github.json', 'r') as f:
     existing_data = json.load(f)
 
-# convert existing data to a dictionary based on login and id
+# Print types and sample data to debug
+print(f"Type of github_data: {type(github_data)}")
+print(f"Type of existing_data: {type(existing_data)}")
+print(f"Sample github_data entry: {github_data[0] if github_data else 'No data'}")
+print(f"Sample existing_data entry: {existing_data[0] if existing_data else 'No data'}")
+
+# Convert existing data to a dictionary based on login and id
 existing_dict = {(user['login'], user['id']): user for user in existing_data}
 
-# update or add API data
+# Update or add API data
 for user in github_data:
     key = (user['login'], user['id'])
     if key in existing_dict:
@@ -19,10 +25,9 @@ for user in github_data:
     else:
         existing_dict[key] = user
 
-# convert back to a list
+# Convert back to a list
 combined_data = list(existing_dict.values())
 
-# save the combined json
+# Save the combined JSON
 with open('.github/contributors/contributors_combined.json', 'w') as f:
     json.dump(combined_data, f, indent=2)
-    
