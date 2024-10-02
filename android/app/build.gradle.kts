@@ -84,7 +84,7 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
     
     //compose
-    implementation(platform("androidx.compose:compose-bom:2024.09.02"))
+    implementation(platform("androidx.compose:compose-bom:2024.09.03"))
     debugImplementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material")
