@@ -23,7 +23,7 @@ class SendGroupMessageViewModel : ViewModel() {
         _uiState.update { it.copy(message = message) }
     }
 
-    fun onIsSuccessChange(isSuccess: Boolean) {
+    fun onIsSuccessChange(isSuccess: Boolean?) {
         _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 

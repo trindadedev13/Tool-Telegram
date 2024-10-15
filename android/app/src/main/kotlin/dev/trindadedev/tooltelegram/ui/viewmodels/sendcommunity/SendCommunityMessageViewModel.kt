@@ -32,7 +32,7 @@ class SendCommunityMessageViewModel : ViewModel() {
         _uiState.update { it.copy(imageUrl = imageUrl) }
     }
 
-    fun onIsSuccessChange(isSuccess: Boolean) {
+    fun onIsSuccessChange(isSuccess: Boolean?) {
         _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 
