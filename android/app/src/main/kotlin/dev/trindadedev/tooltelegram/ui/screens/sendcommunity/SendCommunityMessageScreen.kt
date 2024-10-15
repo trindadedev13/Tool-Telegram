@@ -35,10 +35,7 @@ fun SendCommunityMessageScreen(navController: NavController) {
 
     val defaultModifier = Modifier.fillMaxWidth()
 
-    val isShowDialog = remember { mutableStateOf(false) }
-
-    LaunchedEffect(isSuccess) { isSuccess?.let { isShowDialog.value = true } }
-
+    
     ApplicationScreen(
         modifier = Modifier.padding(start = 10.dp, end = 10.dp).fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -104,16 +101,14 @@ fun SendCommunityMessageScreen(navController: NavController) {
         },
     )
 
-    if (isShowDialog.value) {
-        if (isSuccess == true) {
+    if (isSuccess != null) {
+        if (isSuccess) {
             sd {
-                isShowDialog.value = false
-                // viewModel.onIsSuccessChange(false)
+                viewModel.onIsSuccessChange(null)
             }
         } else {
             ed {
-                isShowDialog.value = false
-                // viewModel.onIsSuccessChange(false)
+                viewModel.onIsSuccessChange(null)
             }
         }
     }

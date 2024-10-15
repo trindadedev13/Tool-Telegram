@@ -83,16 +83,14 @@ fun SendGroupMessageScreen(navController: NavController) {
         },
     )
 
-    if (isShowDialog.value) {
-        if (isSuccess == true) {
+    if (isSuccess != null) {
+        if (isSuccess) {
             sd {
-                isShowDialog.value = false
-                // viewModel.onIsSuccessChange(null)
+                viewModel.onIsSuccessChange(null)
             }
         } else {
             ed {
-                isShowDialog.value = false
-                // viewModel.onIsSuccessChange(null)
+                viewModel.onIsSuccessChange(null)
             }
         }
     }
