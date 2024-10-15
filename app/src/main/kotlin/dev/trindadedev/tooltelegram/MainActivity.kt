@@ -31,8 +31,8 @@ import soup.compose.material.motion.animation.materialSharedAxisXOut
 class MainActivity : ComponentActivity() {
 
     companion object {
-        const val MSAX_SLIDE_DISTANCE: Int = 100
-        const val MSAX_DURATION: Int = 700
+        const val MSAX_SLIDE_DISTANCE: Int = 50
+        const val MSAX_DURATION: Int = 500
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
