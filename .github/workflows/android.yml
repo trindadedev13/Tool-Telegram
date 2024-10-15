@@ -5,11 +5,11 @@ on:
   push:
     paths:
       - .github/workflows/android.yml
-      - android/**
+      - **
   pull_request:
     paths:
       - .github/workflows/android.yml
-      - android/**
+      - **
 
 jobs:
   build_signed_release_apk:
@@ -28,20 +28,20 @@ jobs:
           cache: gradle
 
       - name: Grant execute permission for gradlew
-        run: chmod +x android/gradlew
+        run: chmod +x gradlew
 
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
 
       - name: Build with Gradle
         id: gradle_build_release
-        run: ./android/gradlew assembleRelease -p android
+        run: ./gradlew assembleRelease
 
       - name: Sign APK
         id: sign_apk_release
         uses: noriban/sign-android-release@v5
         with:
-          releaseDirectory: android/app/build/outputs/apk/release
+          releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
