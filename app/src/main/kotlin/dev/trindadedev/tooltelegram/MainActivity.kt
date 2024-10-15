@@ -45,56 +45,61 @@ class MainActivity : ComponentActivity() {
             val isUseHighContrast by
                 appPrefsViewModel.isUseHighContrast.collectAsState(initial = false)
             AntSummerTheme(highContrastDarkTheme = isUseHighContrast, dynamicColor = isUseMonet) {
-                val navController = rememberNavController()
-                NavHost(
-                    navController = navController,
-                    startDestination = "main",
-                    enterTransition = {
-                        materialSharedAxisXIn(
-                            forward = true,
-                            slideDistance = MSAX_SLIDE_DISTANCE,
-                            durationMillis = MSAX_DURATION,
-                        )
-                    },
-                    exitTransition = {
-                        materialSharedAxisXOut(
-                            forward = true,
-                            slideDistance = MSAX_SLIDE_DISTANCE,
-                            durationMillis = MSAX_DURATION,
-                        )
-                    },
-                    popEnterTransition = {
-                        materialSharedAxisXIn(
-                            forward = false,
-                            slideDistance = MSAX_SLIDE_DISTANCE,
-                            durationMillis = MSAX_DURATION,
-                        )
-                    },
-                    popExitTransition = {
-                        materialSharedAxisXOut(
-                            forward = false,
-                            slideDistance = MSAX_SLIDE_DISTANCE,
-                            durationMillis = MSAX_DURATION,
-                        )
-                    },
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
                 ) {
-                    composable("main") {
-                        MainScreen(
-                            onSendCommunityMessageClicked = {
-                                navController.navigate("sendChannel")
-                            },
-                            onSendGroupMessageClicked = { navController.navigate("sendGroup") },
-                            onSettingsClicked = { navController.navigate("settings") },
-                        )
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = "main",
+                        enterTransition = {
+                            materialSharedAxisXIn(
+                                forward = true,
+                                slideDistance = MSAX_SLIDE_DISTANCE,
+                                durationMillis = MSAX_DURATION,
+                            )
+                        },
+                        exitTransition = {
+                            materialSharedAxisXOut(
+                                forward = true,
+                                slideDistance = MSAX_SLIDE_DISTANCE,
+                                durationMillis = MSAX_DURATION,
+                            )
+                        },
+                        popEnterTransition = {
+                            materialSharedAxisXIn(
+                                forward = false,
+                                slideDistance = MSAX_SLIDE_DISTANCE,
+                                durationMillis = MSAX_DURATION,
+                            )
+                        },
+                        popExitTransition = {
+                            materialSharedAxisXOut(
+                                forward = false,
+                                slideDistance = MSAX_SLIDE_DISTANCE,
+                                durationMillis = MSAX_DURATION,
+                            )
+                        },
+                    ) {
+                        composable("main") {
+                            MainScreen(
+                                onSendCommunityMessageClicked = {
+                                    navController.navigate("sendChannel")
+                                },
+                                onSendGroupMessageClicked = { navController.navigate("sendGroup") },
+                                onSettingsClicked = { navController.navigate("settings") },
+                            )
+                        }
+
+                        composable("sendGroup") { SendGroupMessageScreen(navController) }
+
+                        composable("sendChannel") { SendCommunityMessageScreen(navController) }
+
+                        composable("settings") { SettingsScreen(navController) }
+
+                        composable("settings/libraries") { LibrariesScreen(navController) }
                     }
-
-                    composable("sendGroup") { SendGroupMessageScreen(navController) }
-
-                    composable("sendChannel") { SendCommunityMessageScreen(navController) }
-
-                    composable("settings") { SettingsScreen(navController) }
-
-                    composable("settings/libraries") { LibrariesScreen(navController) }
                 }
             }
         }

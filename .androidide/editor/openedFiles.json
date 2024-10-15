@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/.projects/tool-telegram/app/src/main/kotlin/dev/trindadedev/tooltelegram/MainActivity.kt",
+      "selection": {
+        "end": {
+          "column": 19,
+          "index": 2427,
+          "line": 50
+        },
+        "start": {
+          "column": 19,
+          "index": 2427,
+          "line": 50
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/.projects/tool-telegram/app/src/main/kotlin/dev/trindadedev/tooltelegram/MainActivity.kt"
+}

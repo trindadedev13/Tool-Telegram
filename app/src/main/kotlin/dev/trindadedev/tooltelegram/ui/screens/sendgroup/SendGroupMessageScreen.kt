@@ -85,13 +85,9 @@ fun SendGroupMessageScreen(navController: NavController) {
 
     if (isSuccess != null) {
         if (isSuccess) {
-            sd {
-                viewModel.onIsSuccessChange(null)
-            }
+            sd { viewModel.onIsSuccessChange(null) }
         } else {
-            ed {
-                viewModel.onIsSuccessChange(null)
-            }
+            ed { viewModel.onIsSuccessChange(null) }
         }
     }
 }

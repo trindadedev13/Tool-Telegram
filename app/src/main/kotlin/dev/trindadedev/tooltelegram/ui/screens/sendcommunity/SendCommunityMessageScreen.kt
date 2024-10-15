@@ -35,7 +35,6 @@ fun SendCommunityMessageScreen(navController: NavController) {
 
     val defaultModifier = Modifier.fillMaxWidth()
 
-    
     ApplicationScreen(
         modifier = Modifier.padding(start = 10.dp, end = 10.dp).fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -103,13 +102,9 @@ fun SendCommunityMessageScreen(navController: NavController) {
 
     if (isSuccess != null) {
         if (isSuccess) {
-            sd {
-                viewModel.onIsSuccessChange(null)
-            }
+            sd { viewModel.onIsSuccessChange(null) }
         } else {
-            ed {
-                viewModel.onIsSuccessChange(null)
-            }
+            ed { viewModel.onIsSuccessChange(null) }
         }
     }
 }
