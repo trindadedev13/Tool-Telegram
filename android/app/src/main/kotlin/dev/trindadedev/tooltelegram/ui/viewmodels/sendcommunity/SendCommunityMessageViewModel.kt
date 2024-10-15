@@ -1,14 +1,11 @@
 package dev.trindadedev.tooltelegram.ui.viewmodels.sendcommunity
 
 import android.content.Context
-
 import androidx.lifecycle.ViewModel
-
+import dev.trindadedev.tooltelegram.data.TelegramMessageSender
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
-import dev.trindadedev.tooltelegram.data.TelegramMessageSender
 
 class SendCommunityMessageViewModel : ViewModel() {
 
@@ -16,62 +13,48 @@ class SendCommunityMessageViewModel : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     fun onChatIdChange(chatId: String) {
-        _uiState.update { 
-            it.copy(chatId = chatId) 
-        }
+        _uiState.update { it.copy(chatId = chatId) }
     }
 
     fun onTokenChange(token: String) {
-        _uiState.update {
-            it.copy(token = token) 
-        }
+        _uiState.update { it.copy(token = token) }
     }
 
     fun onMessageChange(message: String) {
-        _uiState.update { 
-            it.copy(message = message)
-        }
+        _uiState.update { it.copy(message = message) }
     }
-    
+
     fun onTopicIdChange(topicId: String) {
-        _uiState.update {
-            it.copy(topicId = topicId)
-        }
+        _uiState.update { it.copy(topicId = topicId) }
     }
-    
+
     fun onImageUrlChange(imageUrl: String) {
-        _uiState.update {
-            it.copy(imageUrl = imageUrl)
-        }
+        _uiState.update { it.copy(imageUrl = imageUrl) }
     }
-    
+
     fun onIsSuccessChange(isSuccess: Boolean) {
-        _uiState.update { 
-            it.copy(isSuccess = isSuccess)
-        }
+        _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 
     fun onClickToSend(cid: String, token: String, msg: String, imageUrl: String, context: Context) {
         val sender = TelegramMessageSender(context)
         sender.sendMessageWithImage(
-           chatId = cid, 
-           token = token, 
-           message = msg,
-           imageType = "url", 
-           photoFile = null,
-           photoUrl = imageUrl,
-           callback = object : TelegramMessageSender.Callback {
-                override fun onSuccess(response: String) {
-                    _uiState.update {
-                        it.copy(isSuccess = true)
+            chatId = cid,
+            token = token,
+            message = msg,
+            imageType = "url",
+            photoFile = null,
+            photoUrl = imageUrl,
+            callback =
+                object : TelegramMessageSender.Callback {
+                    override fun onSuccess(response: String) {
+                        _uiState.update { it.copy(isSuccess = true) }
                     }
-                }
-                override fun onError(error: String) {
-                    _uiState.update {
-                        it.copy(isSuccess = false)
+
+                    override fun onError(error: String) {
+                        _uiState.update { it.copy(isSuccess = false) }
                     }
-               }
-           }
+                },
         )
     }
 }

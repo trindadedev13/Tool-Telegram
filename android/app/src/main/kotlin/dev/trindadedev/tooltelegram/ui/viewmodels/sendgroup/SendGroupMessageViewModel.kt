@@ -1,59 +1,49 @@
 package dev.trindadedev.tooltelegram.ui.viewmodels.sendgroup
 
 import android.content.Context
-
 import androidx.lifecycle.ViewModel
-
+import dev.trindadedev.tooltelegram.data.TelegramMessageSender
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
-import dev.trindadedev.tooltelegram.data.TelegramMessageSender
 
 class SendGroupMessageViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(SendGroupMessageUIState())
     val uiState = _uiState.asStateFlow()
 
     fun onChatIdChange(chatId: String) {
-        _uiState.update { 
-            it.copy(chatId = chatId) 
-        }
+        _uiState.update { it.copy(chatId = chatId) }
     }
 
     fun onTokenChange(token: String) {
-        _uiState.update {
-            it.copy(token = token) 
-        }
+        _uiState.update { it.copy(token = token) }
     }
 
     fun onMessageChange(message: String) {
-        _uiState.update { 
-            it.copy(message = message) 
-        }
+        _uiState.update { it.copy(message = message) }
     }
-    
+
     fun onIsSuccessChange(isSuccess: Boolean) {
-        _uiState.update { 
-            it.copy(isSuccess = isSuccess)
-        }
+        _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 
     fun onClickToSend(cid: String, token: String, msg: String, context: Context) {
         val sender = TelegramMessageSender(context)
-        sender.sendMessage(cid, token, msg, object : TelegramMessageSender.Callback {
-            override fun onSuccess(response: String) {
-                _uiState.update {
-                    it.copy(isSuccess = true)
+        sender.sendMessage(
+            cid,
+            token,
+            msg,
+            object : TelegramMessageSender.Callback {
+                override fun onSuccess(response: String) {
+                    _uiState.update { it.copy(isSuccess = true) }
+                    // Chame uma função de callback, ou use um outro meio para notificar o sucesso
                 }
-                // Chame uma função de callback, ou use um outro meio para notificar o sucesso
-            }
 
-            override fun onError(error: String) {
-                _uiState.update {
-                    it.copy(isSuccess = false)
+                override fun onError(error: String) {
+                    _uiState.update { it.copy(isSuccess = false) }
+                    // Chame uma função de callback, ou use um outro meio para notificar o erro
                 }
-                // Chame uma função de callback, ou use um outro meio para notificar o erro
-            }
-        })
+            },
+        )
     }
 }

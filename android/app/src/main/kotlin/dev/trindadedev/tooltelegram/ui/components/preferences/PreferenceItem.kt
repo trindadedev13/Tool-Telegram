@@ -33,15 +33,10 @@ fun PreferenceItem(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = { onClick(isChecked) }, enabled = isEnabled)
-            .padding(
-                start = 17.dp,
-                end = 17.dp,
-                bottom = 12.dp,
-                top = 12.dp,
-            ),
+        modifier =
+            Modifier.fillMaxWidth()
+                .clickable(onClick = { onClick(isChecked) }, enabled = isEnabled)
+                .padding(start = 17.dp, end = 17.dp, bottom = 12.dp, top = 12.dp),
     ) {
         if (icon != null) {
             Icon(
@@ -51,10 +46,7 @@ fun PreferenceItem(
             )
         }
         Row(modifier = Modifier.weight(0.5F)) {
-            Column(
-                modifier = Modifier
-                    .align(Alignment.CenterVertically),
-            ) {
+            Column(modifier = Modifier.align(Alignment.CenterVertically)) {
                 Text(
                     text = title,
                     fontSize = 20.sp,

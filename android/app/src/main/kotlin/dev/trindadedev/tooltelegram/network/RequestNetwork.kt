@@ -1,11 +1,9 @@
 package dev.trindadedev.tooltelegram.network
 
-import android.content.Context
 import android.app.Activity
-
-import okhttp3.*
-
+import android.content.Context
 import java.io.IOException
+import okhttp3.*
 
 class RequestNetwork(private val context: Context) {
 
@@ -16,60 +14,75 @@ class RequestNetwork(private val context: Context) {
         this.headers = headers
     }
 
-    fun startRequestNetwork(method: String, url: String, tag: String, requestListener: RequestListener) {
+    fun startRequestNetwork(
+        method: String,
+        url: String,
+        tag: String,
+        requestListener: RequestListener,
+    ) {
         startRequestNetwork(method, url, tag, null, requestListener)
     }
 
-    fun startRequestNetwork(method: String, url: String, tag: String, formData: HashMap<String, Any>?, requestListener: RequestListener) {
+    fun startRequestNetwork(
+        method: String,
+        url: String,
+        tag: String,
+        formData: HashMap<String, Any>?,
+        requestListener: RequestListener,
+    ) {
         this.requestListener = requestListener
         val client = OkHttpClient()
 
         val requestBuilder = Request.Builder().url(url)
-        headers?.forEach { (key, value) ->
-            requestBuilder.addHeader(key, value)
-        }
+        headers?.forEach { (key, value) -> requestBuilder.addHeader(key, value) }
 
         if (method == "POST" && formData != null) {
             val formBodyBuilder = FormBody.Builder()
-            formData.forEach { (key, value) ->
-                formBodyBuilder.add(key, value.toString())
-            }
+            formData.forEach { (key, value) -> formBodyBuilder.add(key, value.toString()) }
             requestBuilder.post(formBodyBuilder.build())
         }
 
         val request = requestBuilder.build()
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                (context as? Activity)?.runOnUiThread {
-                    requestListener.onErrorResponse(tag, e.message ?: "Unknown error")
-                }
-            }
+        client
+            .newCall(request)
+            .enqueue(
+                object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+                        (context as? Activity)?.runOnUiThread {
+                            requestListener.onErrorResponse(tag, e.message ?: "Unknown error")
+                        }
+                    }
 
-            override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body?.string() ?: ""
-                    val responseHeaders = response.headers.toMap()
-                    (context as? Activity)?.runOnUiThread {
-                        requestListener.onResponse(tag, responseBody, responseHeaders)
-                    }
-                } else {
-                    (context as? Activity)?.runOnUiThread {
-                        requestListener.onErrorResponse(tag, response.message)
+                    override fun onResponse(call: Call, response: Response) {
+                        if (response.isSuccessful) {
+                            val responseBody = response.body?.string() ?: ""
+                            val responseHeaders = response.headers.toMap()
+                            (context as? Activity)?.runOnUiThread {
+                                requestListener.onResponse(tag, responseBody, responseHeaders)
+                            }
+                        } else {
+                            (context as? Activity)?.runOnUiThread {
+                                requestListener.onErrorResponse(tag, response.message)
+                            }
+                        }
                     }
                 }
-            }
-        })
+            )
     }
 
-    fun startRequestNetwork(method: String, url: String, tag: String, requestBody: RequestBody, requestListener: RequestListener) {
+    fun startRequestNetwork(
+        method: String,
+        url: String,
+        tag: String,
+        requestBody: RequestBody,
+        requestListener: RequestListener,
+    ) {
         this.requestListener = requestListener
         val client = OkHttpClient()
 
         val requestBuilder = Request.Builder().url(url)
-        headers?.forEach { (key, value) ->
-            requestBuilder.addHeader(key, value)
-        }
+        headers?.forEach { (key, value) -> requestBuilder.addHeader(key, value) }
 
         if (method == "POST") {
             requestBuilder.post(requestBody)
@@ -77,27 +90,31 @@ class RequestNetwork(private val context: Context) {
 
         val request = requestBuilder.build()
 
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                (context as? Activity)?.runOnUiThread {
-                    requestListener.onErrorResponse(tag, e.message ?: "Unknown error")
-                }
-            }
+        client
+            .newCall(request)
+            .enqueue(
+                object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+                        (context as? Activity)?.runOnUiThread {
+                            requestListener.onErrorResponse(tag, e.message ?: "Unknown error")
+                        }
+                    }
 
-            override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body?.string() ?: ""
-                    val responseHeaders = response.headers.toMap()
-                    (context as? Activity)?.runOnUiThread {
-                        requestListener.onResponse(tag, responseBody, responseHeaders)
-                    }
-                } else {
-                    (context as? Activity)?.runOnUiThread {
-                        requestListener.onErrorResponse(tag, response.message)
+                    override fun onResponse(call: Call, response: Response) {
+                        if (response.isSuccessful) {
+                            val responseBody = response.body?.string() ?: ""
+                            val responseHeaders = response.headers.toMap()
+                            (context as? Activity)?.runOnUiThread {
+                                requestListener.onResponse(tag, responseBody, responseHeaders)
+                            }
+                        } else {
+                            (context as? Activity)?.runOnUiThread {
+                                requestListener.onErrorResponse(tag, response.message)
+                            }
+                        }
                     }
                 }
-            }
-        })
+            )
     }
 }
 

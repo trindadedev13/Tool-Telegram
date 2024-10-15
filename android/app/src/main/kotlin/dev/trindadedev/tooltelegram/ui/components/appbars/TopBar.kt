@@ -38,10 +38,7 @@ fun TopBar(
         actions = {
             if (icon != null) {
                 IconButton(onClickIcon) {
-                    Icon(
-                        imageVector = icon,
-                        contentDescription = iconContentDescription,
-                    )
+                    Icon(imageVector = icon, contentDescription = iconContentDescription)
                 }
             }
         },

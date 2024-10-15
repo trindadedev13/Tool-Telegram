@@ -1,13 +1,11 @@
 package dev.trindadedev.tooltelegram
 
 import android.app.Application
-
+import dev.trindadedev.tooltelegram.di.appModule
+import dev.trindadedev.tooltelegram.di.appPreferencesModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-
-import dev.trindadedev.tooltelegram.di.appModule
-import dev.trindadedev.tooltelegram.di.appPreferencesModule
 
 class ToolTelegramApplication : Application() {
 
@@ -17,11 +15,7 @@ class ToolTelegramApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@ToolTelegramApplication)
-            modules(
-                appModule,
-                appPreferencesModule
-            )
+            modules(appModule, appPreferencesModule)
         }
     }
-
 }
