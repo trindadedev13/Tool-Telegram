@@ -5,11 +5,11 @@ on:
   push:
     paths:
       - .github/workflows/android.yml
-      - **
+      - app/**
   pull_request:
     paths:
       - .github/workflows/android.yml
-      - **
+      - app/**
 
 jobs:
   build_signed_release_apk:
