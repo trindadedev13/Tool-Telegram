@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher" 
         android:label="@string/app_name" 
         android:supportsRtl="true" 
-        android:name="org.gampiot.tooltelegram.ToolTelegramApplication"
+        android:name="dev.trindadedev.tooltelegram.ToolTelegramApplication"
         android:theme="@style/AntSummerTheme">
         <activity 
-            android:name="org.gampiot.tooltelegram.MainActivity" 
+            android:name="dev.trindadedev.tooltelegram.MainActivity" 
             android:exported="true">
             <intent-filter>
                 <action 

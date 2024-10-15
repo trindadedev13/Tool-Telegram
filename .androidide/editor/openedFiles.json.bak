@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/tool-telegram/android/app/src/main/kotlin/dev/trindadedev/tooltelegram/data/TelegramMessageSender.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 398,
+          "line": 14
+        },
+        "start": {
+          "column": 0,
+          "index": 398,
+          "line": 14
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/tool-telegram/android/app/src/main/kotlin/dev/trindadedev/tooltelegram/data/TelegramMessageSender.kt"
+}

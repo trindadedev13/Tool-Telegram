@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace = "org.gampiot.tooltelegram"
+    namespace = "dev.trindadedev.tooltelegram"
     compileSdk = 34
     
     defaultConfig {
-        applicationId = "org.gampiot.tooltelegram"
+        applicationId = "dev.trindadedev.tooltelegram"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
