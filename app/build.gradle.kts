@@ -73,7 +73,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
-    implementation("com.google.android.material:material:1.13.0-alpha06")
+    implementation("com.google.android.material:material:1.13.0-alpha07")
      
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.mikepenz:aboutlibraries-core:$aboutLibrariesVersion")
