@@ -24,11 +24,11 @@ class SendCommunityMessageViewModel : ViewModel() {
         _uiState.update { it.copy(message = message) }
     }
 
-    fun onTopichatIrChange(topichatIr: String) {
+    fun onTopicIdChange(topichatIr: String) {
         _uiState.update { it.copy(topichatIr = topichatIr) }
     }
 
-    fun onphotoUrlChange(photoUrl: String) {
+    fun onImageUrlChange(photoUrl: String) {
         _uiState.update { it.copy(photoUrl = photoUrl) }
     }
 
