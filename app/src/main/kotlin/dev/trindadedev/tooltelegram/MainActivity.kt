@@ -44,7 +44,10 @@ class MainActivity : ComponentActivity() {
             val isUseMonet by appPrefsViewModel.isUseMonet.collectAsState(initial = true)
             val isUseHighContrast by
                 appPrefsViewModel.isUseHighContrast.collectAsState(initial = false)
-            ToolTelegramTheme(highContrastDarkTheme = isUseHighContrast, dynamicColor = isUseMonet) {
+            ToolTelegramTheme(
+                highContrastDarkTheme = isUseHighContrast,
+                dynamicColor = isUseMonet,
+            ) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,

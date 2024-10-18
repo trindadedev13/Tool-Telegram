@@ -14,25 +14,27 @@ class TelegramMessageSender(private val context: Context) {
         chatId: String,
         token: String,
         message: String,
-        imageType: String? = null, 
+        imageType: String? = null,
         photoFile: File? = null,
         photoUrl: String? = null,
         topicId: String = "",
-        callback: Callback
+        callback: Callback,
     ) {
-        val url = if (imageType != null && (imageType == "file" || imageType == "url")) {
-            "https://api.telegram.org/bot$token/sendPhoto"
-        } else {
-            "https://api.telegram.org/bot$token/sendMessage"
-        }
+        val url =
+            if (imageType != null && (imageType == "file" || imageType == "url")) {
+                "https://api.telegram.org/bot$token/sendPhoto"
+            } else {
+                "https://api.telegram.org/bot$token/sendMessage"
+            }
 
         val requestNetwork = RequestNetwork(context)
 
         if (url == "https://api.telegram.org/bot$token/sendMessage") {
-            val formData = HashMap<String, Any>().apply {
-                put("chat_id", chatId)
-                put("text", message)
-            }
+            val formData =
+                HashMap<String, Any>().apply {
+                    put("chat_id", chatId)
+                    put("text", message)
+                }
 
             requestNetwork.startRequestNetwork(
                 "POST",
@@ -51,13 +53,14 @@ class TelegramMessageSender(private val context: Context) {
                     override fun onErrorResponse(tag: String, response: String) {
                         callback.onError(response)
                     }
-                }
+                },
             )
         } else {
-            val multipartBuilder = MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
-                .addFormDataPart("chat_id", chatId)
-                .addFormDataPart("caption", message)
+            val multipartBuilder =
+                MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)
+                    .addFormDataPart("chat_id", chatId)
+                    .addFormDataPart("caption", message)
 
             when (imageType) {
                 "file" -> {
@@ -65,10 +68,11 @@ class TelegramMessageSender(private val context: Context) {
                         val mediaType = "image/*".toMediaTypeOrNull()
                         val fileBody = file.asRequestBody(mediaType)
                         multipartBuilder.addFormDataPart("photo", file.name, fileBody)
-                    } ?: run {
-                        callback.onError("No file selected.")
-                        return
                     }
+                        ?: run {
+                            callback.onError("No file selected.")
+                            return
+                        }
                 }
                 "url" -> {
                     photoUrl?.let { url -> multipartBuilder.addFormDataPart("photo", url) }
@@ -106,13 +110,14 @@ class TelegramMessageSender(private val context: Context) {
                     override fun onErrorResponse(tag: String, response: String) {
                         callback.onError(response)
                     }
-                }
+                },
             )
         }
     }
 
     interface Callback {
         fun onSuccess(response: String)
+
         fun onError(error: String)
     }
 }

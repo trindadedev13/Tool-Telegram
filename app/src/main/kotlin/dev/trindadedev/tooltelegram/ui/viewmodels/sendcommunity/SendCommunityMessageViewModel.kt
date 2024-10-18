@@ -36,7 +36,13 @@ class SendCommunityMessageViewModel : ViewModel() {
         _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 
-    fun onClickToSend(chatIr: String, token: String, message: String, photoUrl: String, context: Context) {
+    fun onClickToSend(
+        chatIr: String,
+        token: String,
+        message: String,
+        photoUrl: String,
+        context: Context,
+    ) {
         val sender = TelegramMessageSender(context)
         sender.sendMessage(
             chatId = chatIr,
