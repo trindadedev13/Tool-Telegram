@@ -33,7 +33,7 @@ class SendGroupMessageViewModel : ViewModel() {
             chatId = chatId,
             token = token,
             message = message,
-            object : TelegramMessageSender.Callback {
+            callback = object : TelegramMessageSender.Callback {
                 override fun onSuccess(response: String) {
                     _uiState.update { it.copy(isSuccess = true) }
                 }
