@@ -1,0 +1,39 @@
+name: ktmft formatter
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  format:
+    name: Format Code with ktfmt
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          java-version: '22'
+          
+      - name: Download ktfmt
+        run: |
+          wget https://github.com/facebook/ktfmt/releases/download/v0.52/ktfmt-0.52-jar-with-dependencies.jar -O ktfmt.jar
+
+      - name: Run ktfmt on Kotlin files
+        run: |
+          find . -name "*.kt" -exec java -jar ktfmt.jar --kotlinlang-style {} +
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "trindadedev13"
+          git config --global user.email "devsuay@gmail.com"
+          git add .
+          git commit -m "chore: Format Code" -m "fornat code with ktfmt with github actions"
+          git branch -M dev
+          git push origin dev
+        env:
+          TOKEN: ${{ secrets.SUPER_TOKEN }}
+        continue-on-error: true
