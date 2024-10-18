@@ -1,9 +1,10 @@
 # Tool Telegram
 
-- Tool Telegram Android app with material design 3 and Jetpack Compose.
+- Send messages on telegram as a bot, easily.
 
-
-<img width="150" height="350" src="assets/screenshots/A.png">
-<img width="150" height="350" src="assets/screenshots/B.png">
-<img width="150" height="350" src="assets/screenshots/C.png">
-<img width="150" height="350" src="assets/screenshots/D.png">
+<p align="center">
+    <img width="150" height="350" src="assets/screenshots/A.png">
+    <img width="150" height="350" src="assets/screenshots/B.png">
+    <img width="150" height="350" src="assets/screenshots/C.png">
+    <img width="150" height="350" src="assets/screenshots/D.png">
+</p>
