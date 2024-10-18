@@ -22,7 +22,7 @@ import dev.trindadedev.tooltelegram.ui.screens.preferences.LibrariesScreen
 import dev.trindadedev.tooltelegram.ui.screens.preferences.SettingsScreen
 import dev.trindadedev.tooltelegram.ui.screens.sendcommunity.SendCommunityMessageScreen
 import dev.trindadedev.tooltelegram.ui.screens.sendgroup.SendGroupMessageScreen
-import dev.trindadedev.tooltelegram.ui.theme.AntSummerTheme
+import dev.trindadedev.tooltelegram.ui.theme.ToolTelegramTheme
 import dev.trindadedev.tooltelegram.ui.viewmodels.preferences.d.AppPreferencesViewModel
 import org.koin.androidx.compose.koinViewModel
 import soup.compose.material.motion.animation.materialSharedAxisXIn
@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
             val isUseMonet by appPrefsViewModel.isUseMonet.collectAsState(initial = true)
             val isUseHighContrast by
                 appPrefsViewModel.isUseHighContrast.collectAsState(initial = false)
-            AntSummerTheme(highContrastDarkTheme = isUseHighContrast, dynamicColor = isUseMonet) {
+            ToolTelegramTheme(highContrastDarkTheme = isUseHighContrast, dynamicColor = isUseMonet) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
