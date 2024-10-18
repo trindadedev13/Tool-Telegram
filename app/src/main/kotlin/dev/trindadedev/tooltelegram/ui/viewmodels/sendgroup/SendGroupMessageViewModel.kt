@@ -27,21 +27,19 @@ class SendGroupMessageViewModel : ViewModel() {
         _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 
-    fun onClickToSend(cid: String, token: String, msg: String, context: Context) {
+    fun onClickToSend(chatId: String, token: String, message: String, context: Context) {
         val sender = TelegramMessageSender(context)
         sender.sendMessage(
-            cid,
-            token,
-            msg,
+            chatId = chatId,
+            token = token,
+            message = message,
             object : TelegramMessageSender.Callback {
                 override fun onSuccess(response: String) {
                     _uiState.update { it.copy(isSuccess = true) }
-                    // Chame uma função de callback, ou use um outro meio para notificar o sucesso
                 }
 
                 override fun onError(error: String) {
                     _uiState.update { it.copy(isSuccess = false) }
-                    // Chame uma função de callback, ou use um outro meio para notificar o erro
                 }
             },
         )

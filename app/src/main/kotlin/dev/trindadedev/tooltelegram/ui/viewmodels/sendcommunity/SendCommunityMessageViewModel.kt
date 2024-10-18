@@ -24,27 +24,27 @@ class SendCommunityMessageViewModel : ViewModel() {
         _uiState.update { it.copy(message = message) }
     }
 
-    fun onTopicIdChange(topicId: String) {
-        _uiState.update { it.copy(topicId = topicId) }
+    fun onTopichatIrChange(topichatIr: String) {
+        _uiState.update { it.copy(topichatIr = topichatIr) }
     }
 
-    fun onImageUrlChange(imageUrl: String) {
-        _uiState.update { it.copy(imageUrl = imageUrl) }
+    fun onphotoUrlChange(photoUrl: String) {
+        _uiState.update { it.copy(photoUrl = photoUrl) }
     }
 
     fun onIsSuccessChange(isSuccess: Boolean?) {
         _uiState.update { it.copy(isSuccess = isSuccess) }
     }
 
-    fun onClickToSend(cid: String, token: String, msg: String, imageUrl: String, context: Context) {
+    fun onClickToSend(chatIr: String, token: String, message: String, photoUrl: String, context: Context) {
         val sender = TelegramMessageSender(context)
         sender.sendMessage(
-            chatId = cid,
+            chatId = chatIr,
             token = token,
-            message = msg,
+            message = message,
             imageType = "url",
             photoFile = null,
-            photoUrl = imageUrl,
+            photoUrl = photoUrl,
             callback =
                 object : TelegramMessageSender.Callback {
                     override fun onSuccess(response: String) {
