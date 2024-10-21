@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <style name="AntSummerTheme" parent="Theme.Material3.Dark.NoActionBar" />
+    <style name="Theme.Splash" parent="Theme.Splash.Dark" />
 </resources>
