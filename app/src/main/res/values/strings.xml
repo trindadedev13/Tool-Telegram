@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Tool Telegram</string>
+    
     <!-- Action Strings -->
     <string name="send_group_message">Send group message (Bot)</string>
     <string name="send_community_message">Send community message (Bot)</string>
