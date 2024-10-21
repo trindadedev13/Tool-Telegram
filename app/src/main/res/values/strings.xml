@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tool Telegram</string>
-    
+    <!-- Action Strings -->
     <string name="send_group_message">Send group message (Bot)</string>
-    <string name="send_community_message">Send message in community (Bot)</string>
+    <string name="send_community_message">Send community message (Bot)</string>
     
+    <!-- Labels -->
     <string name="chat_id_label">Chat ID</string>
     <string name="token_label">Bot Token</string>
     <string name="message_label">Message</string>
@@ -18,10 +18,12 @@
     <string name="libraries_label">Libraries</string>
     <string name="use_high_contrast_label">Use High Contrast Theme</string>
     
-    <string name="use_monet_description">Use Dynamic Colors in app if available.</string>
+    <!-- Descriptions -->
+    <string name="use_monet_description">Use Dynamic Colors in the app if available.</string>
     <string name="use_high_contrast_description">Use pure black in dark mode.</string>
     <string name="libraries_description">All the libraries we use in the application.</string>
     
+    <!-- Dialog Messages -->
     <string name="dialog_success_title">Success!</string>
     <string name="dialog_success_text">Your message has been sent successfully!</string>
     <string name="dialog_error_title">Error!</string>

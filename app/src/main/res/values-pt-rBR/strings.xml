@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Action Strings -->
+    <string name="send_group_message">Enviar mensagem em grupo</string>
+    <string name="send_community_message">Enviar mensagem em comunidade</string>
+    
+    <!-- Labels -->
+    <string name="chat_id_label">ID do Chat</string>
+    <string name="token_label">Token do Bot</string>
+    <string name="message_label">Mensagem</string>
+    <string name="send_label">Enviar</string>
+    <string name="topic_id_label">ID do Tópico</string>
+    <string name="image_url_label">URL da Imagem</string>
+    <string name="settings_label">Configurações</string>
+    <string name="appearance_label">Aparência</string>
+    <string name="use_monet_label">Usar Cores Dinâmicas</string>
+    <string name="about_label">Sobre</string>
+    <string name="libraries_label">Bibliotecas</string>
+    <string name="use_high_contrast_label">Usar Tema de Alto Contraste</string>
+    
+    <!-- Descriptions -->
+    <string name="use_monet_description">Usar cores dinâmicas no aplicativo se disponível.</string>
+    <string name="use_high_contrast_description">Usar preto puro no modo escuro.</string>
+    <string name="libraries_description">Todas as bibliotecas que utilizamos no aplicativo.</string>
+    
+    <!-- Dialog Messages -->
+    <string name="dialog_success_title">Sucesso!</string>
+    <string name="dialog_success_text">Sua mensagem foi enviada com sucesso!</string>
+    <string name="dialog_error_title">Erro!</string>
+    <string name="dialog_error_text">Ocorreu um erro ao enviar sua mensagem!</string>
+</resources>
