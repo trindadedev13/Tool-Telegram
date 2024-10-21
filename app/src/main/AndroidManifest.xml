@@ -12,7 +12,7 @@
         android:label="@string/app_name" 
         android:supportsRtl="true" 
         android:name="dev.trindadedev.tooltelegram.ToolTelegramApplication"
-        android:theme="@style/AntSummerTheme">
+        android:theme="@style/Theme.ToolTelegram">
         <activity 
             android:name="dev.trindadedev.tooltelegram.MainActivity" 
             android:exported="true">
